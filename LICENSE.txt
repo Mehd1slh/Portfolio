@@ -1,0 +1,40 @@
+<style>
+        .project-container {
+            margin-bottom: 3rem;
+            overflow: hidden;
+        }
+        
+        .project {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .project-image {
+            flex: 0 0 40%;
+            max-width: 40%;
+        }
+        
+        .project-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .project-content {
+            flex: 1;
+        }
+        
+        @media (max-width: 768px) {
+            .project {
+                flex-direction: column;
+            }
+            
+            .project-image {
+                flex: 0 0 100%;
+                max-width: 100%;
+                margin-bottom: 1rem;
+            }
+        }
+    </style>
