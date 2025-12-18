@@ -48,20 +48,22 @@
 						<div id="main">
 
 							<!-- Intro -->
+								<!-- Intro -->
 								<article id="intro">
 									<h2 class="major">Intro</h2>
 									<!--
 									<span class="image main"><img src="images/pic01.jpg" alt="" /></span>
 									-->
-									
-									<p>Hello! I’m El Mehdi Salih, an IT student with a passion for cutting-edge technologies and a focus on artificial intelligence, machine learning, data mining, and system architecture. With a strong foundation in Informatics from my Licence en Sciences et Techniques, I’m currently advancing my studies in Intelligent Processing Systems at FS Rabat, where I am honing my skills in Python, AI frameworks, and microservices architecture.<br><br>
 
-										I have hands-on experience developing robust web applications, working with frameworks like Spring Boot, Angular, and integrating AI solutions to enhance user experience—such as creating AI-powered chatbots and search functionalities for e-commerce platforms. I’ve worked on projects involving data mining and performance prediction, with a deep understanding in association rules, clustering algorithms, and k-NN. Additionally, I’m currently diving into Business Intelligence (BI) systems, with a particular interest in integrated library management systems using PMB.<br><br>
-							
-										With a keen interest in both coding and problem-solving, I aim to bridge the gap between technology and real-world applications, delivering innovative solutions. Outside of tech, I’m passionate about bodybuilding, which keeps me disciplined and motivated to continuously improve.<br><br>
-							
-										Feel free to explore my portfolio to see <a href="#Projects">projects and skills that define my journey!</a> </p>
-									</article>
+									<p>
+										Hello! I’m El Mehdi Salih, a Master’s student in <strong>Intelligent Processing Systems (IPS)</strong> at the Faculty of Sciences of Rabat, specializing in <strong>Artificial Intelligence, Retrieval-Augmented Generation (RAG), and data-driven systems</strong>.<br><br>
+
+										I design and build <strong>AI-powered applications</strong> that combine modern software engineering practices (Spring Boot, Angular, microservices) with <strong>local and privacy-preserving AI pipelines</strong>. My work focuses on transforming research concepts into practical, efficient systems, particularly in <strong>document intelligence, adaptive retrieval, and AI-assisted decision support</strong>.<br><br>
+
+										Feel free to explore my portfolio to see <a href="#Projects">projects and skills that define my journey!</a>
+									</p>
+								</article>
+
 
 							<!-- Projects -->
 								<article id="Projects">
@@ -167,23 +169,54 @@
 											</div>
 										</div>
 									</div>
+
+									<!-- Project: DocBot – Offline RAG PDF Chatbot -->
+									<div class="project-container">
+										<div class="project">
+											<div class="project-image-top">
+												<img src="images/docbot.png" alt="DocBot Offline RAG Chatbot" />
+											</div>
+											<div class="project-content">
+												<h3>DocBot: Offline PDF Chatbot using Local RAG</h3>
+												<p><strong>Technologies:</strong> Python, LangChain, Ollama, PostgreSQL, pgvector, Gradio, Docker</p>
+												<p>
+													Designed and implemented a fully <strong>offline, privacy-preserving AI chatbot</strong> that enables users to interact with PDF documents using Retrieval-Augmented Generation (RAG):
+													<ul class="project-features">
+														<li><strong>Local RAG Pipeline:</strong> Built with Qwen3-1.7B (LLM) and nomic-embed-text for embeddings, eliminating cloud dependency</li>
+														<li><strong>Vector Storage:</strong> PostgreSQL + pgvector with cleanable, session-based indices</li>
+														<li><strong>Real-Time Streaming:</strong> Token-level response streaming using threaded callbacks</li>
+														<li><strong>Evaluation:</strong> Benchmarked across academic PDFs using human-judged F1 score and latency analysis</li>
+														<li><strong>Low-Resource Optimization:</strong> Designed to run efficiently on ≤8GB RAM systems</li>
+													</ul>
+													<strong>Research Extension:</strong>
+													<ul class="project-achievements">
+														<li>Proposed <strong>Adaptive Context Budgeting (ACB)</strong> to dynamically adjust retrieval depth</li>
+														<li>Reduced latency by ~30% and prompt size by ~38% while preserving answer quality</li>
+													</ul>
+												</p>
+												<div class="project-links">
+													<span class="button small disabled">Technical Report (Coming Soon)</span><br>
+													<span class="button small disabled">Research Paper (Coming Soon)</span>
+												</div>
+											</div>
+										</div>
+									</div>
 								</article>
 
 
 
 							<!-- About -->
-							<article id="about">
-								<h2 class="major">About</h2>
-								<!--
-								<span class="image main"><img src="images/pic01.jpg" alt="" /></span>
-								-->
-								<p>I am a Master's student specializing in Intelligent Processing Systems with a strong background in Informatics. Throughout my academic journey, I have focused on artificial intelligence, machine learning, data mining, and system architecture. My expertise includes working with Python, Spring Boot, Angular, and various AI frameworks.<br><br>
+								<article id="about">
+									<h2 class="major">About</h2>
+									<span class="image main"><img src="images/me_shiftlab.jpg" alt="" /></span>
+									<p>
+										My work focuses on designing <strong>intelligent systems that remain efficient, reliable, and scalable under real-world constraints</strong>. I am particularly interested in applied artificial intelligence, data-driven architectures, and Retrieval-Augmented Generation (RAG), with an emphasis on <strong>performance optimization, privacy, and system robustness</strong>.<br><br>
 
-									Outside of academics, I am passionate about bodybuilding and weightlifting, which not only keeps me physically fit but also instills discipline and a continuous desire for improvement in all aspects of my life. My passion for technology, coupled with a strong work ethic and drive for success, motivates me to constantly strive for excellence in everything I do.<br><br>
-						
-									I’m always excited to explore new technologies and take on new challenges, and I’m particularly interested in bridging the gap between cutting-edge technologies and practical real-world solutions.</p>
+										Through academic and engineering projects, I have developed a structured approach that spans <strong>problem analysis, algorithmic design, and end-to-end implementation</strong>. This includes building local RAG pipelines, optimizing context usage, designing data and microservices architectures, and evaluating system performance using both quantitative and human-centered metrics.<br><br>
+
+										I value discipline, consistency, and long-term improvement, principles reinforced through regular gym training and weightlifting, which naturally influence how I approach complex engineering problems, iterate on solutions, and deliver reliable systems.
+									</p>
 								</article>
-
 
 
 							<!-- Contact -->
