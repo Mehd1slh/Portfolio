@@ -101,6 +101,36 @@
 										</div>
 									</div>
 
+									<!-- Project: EGMR – Master's Thesis (Entropy-Guided Matryoshka Retrieval) -->
+									<div class="project-container">
+										<div class="project">
+											<div class="project-image-top">
+												<img src="images/egmr.png" alt="EGMR Entropy-Guided Matryoshka Retrieval" />
+											</div>
+											<div class="project-content">
+												<h3>EGMR: Entropy-Guided Matryoshka Retrieval — Master's Thesis </h3>
+												<p><strong>Technologies:</strong> Python, Ollama (Qwen3-1.7B), nomic-embed-text, FAISS, Qdrant, BM25, RAGAS, MLflow, Podman</p>
+												<p>
+													Master's thesis research on <strong>per-question adaptive retrieval for resource-constrained biomedical RAG</strong>. EGMR routes each question between a compact (64-dim) and a full-resolution (768-dim) dense index using a training-free uncertainty signal from a small local model, then stress-tests whether that routing really tracks question difficulty:
+													<ul class="project-features">
+														<li><strong>Dual-Resolution Index:</strong> Built from a single Matryoshka embedding pass over 75,919 deduplicated PubMed snippets, served through both FAISS and Qdrant with an in-RAM / on-disk split matching clinic-scale hardware.</li>
+														<li><strong>Margin-Based Routing Gate:</strong> A logit-margin uncertainty signal from a no-context draft answer decides, per question, which index to search; calibrated against a declared 30% deep-search compute budget.</li>
+														<li><strong>Full Evaluation:</strong> Four generation tiers (zero-shot, oracle, static, routed) over the complete BioASQ Task 14b training set (5,729 questions, 22,916 generation calls), scored with BERTScore and RAGAS using a separate judge model.</li>
+														<li><strong>Diagnostic Audit:</strong> Paired Wilcoxon tests, Monte Carlo random-routing controls, bootstrapped AUC and Bonferroni-corrected correlation tests, plus root-cause analysis of five evaluation anomalies.</li>
+													</ul>
+													<strong>Key Findings:</strong>
+													<ul class="project-achievements">
+														<li>Significantly better retrieval than an always-shallow baseline (Wilcoxon p&lt;0.0001) at 30% of the deep-search cost.</li>
+														<li>Reported a negative result with equal prominence: the routing signal allocates budget effectively but does not identify which individual questions are hard (AUC ≈ 0.49 against a 0.5 chance baseline).</li>
+													</ul>
+												</p>
+												<div class="project-links">
+													<span class="button small disabled">Thesis &amp; Code (Coming Soon)</span>
+												</div>
+											</div>
+										</div>
+									</div>
+
 									<!-- Project 2: GLHF -->
 									<div class="project-container">
 										<div class="project">
@@ -165,6 +195,33 @@
 										</div>
 									</div>
 
+									<!-- Project: AirDwa – Drone Medical Dispatch -->
+									<!-- TODO: confirm and state your own contribution (ASR pipeline / simulation / dispatch logic / map building) -->
+									<div class="project-container">
+										<div class="project">
+											<div class="project-image-top">
+												<img src="images/airdwa.png" alt="AirDwa Drone Medical Dispatch" />
+											</div>
+											<div class="project-content">
+												<h3>AirDwa: Voice-Activated Drone Medical Dispatch</h3>
+												<p><strong>Technologies:</strong> Python, Mesa, Solara, Whisper (fine-tuned), local LLM, OpenStreetMap, OpenTopography, Streamlit, Gradio, Pygame</p>
+												<p>
+													Team project (4 students): a multi-agent drone logistics simulation for emergency medical delivery in rural Morocco, where poor road access can turn a medical emergency fatal. A request spoken in Darija triggers a drone fleet that coordinates delivery on its own:
+													<ul class="project-features">
+														<li><strong>Darija Voice Activation:</strong> A fine-tuned <strong>Whisper</strong> ASR model combined with a local LLM extracts medical intent and destination from natural spoken Darija.</li>
+														<li><strong>Real-World Map Generation:</strong> Pick a bounding box anywhere in Morocco and the system maps pharmacies, telecom towers and impassable high-altitude terrain from <strong>OpenStreetMap</strong> and <strong>OpenTopography</strong> into the simulation grid.</li>
+														<li><strong>Auction-Based Dispatch:</strong> Drones bid on missions using a cost function that balances battery, flight distance and payload urgency.</li>
+														<li><strong>Patient-First Failure Recovery:</strong> On a critical in-flight failure, the dispatcher abandons the lost payload and immediately orders a fresh drone from the nearest hospital.</li>
+														<li><strong>Infrastructure Reuse:</strong> Existing rural telecom towers act as mid-flight charging points for the fleet.</li>
+													</ul>
+												</p>
+												<div class="project-links">
+													<a href="https://github.com/Mehd1slh/AirDwa" class="button small">View On GitHub</a>
+												</div>
+											</div>
+										</div>
+									</div>
+
 									<!-- Project 2: AgriStore Smart Microservices Platform -->
 									<div class="project-container">
 										<div class="project">
@@ -215,6 +272,80 @@
 												</p>
 												<div class="project-links">
 													<a href="https://github.com/Mehd1slh/AGRIMAR" class="button small">View On GitHub</a>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<!-- Project: AgriLik – Hackathon Ecosystem Pitch -->
+									<div class="project-container">
+										<div class="project">
+											<div class="project-image-top">
+												<img src="images/agrilik.png" alt="AgriLik Smart Agriculture Ecosystem" />
+											</div>
+											<div class="project-content">
+												<h3>AgriLik: Smart Agriculture Ecosystem — AI2SD Hackathon 2025</h3>
+												<p><strong>Technologies:</strong> AgriMar (Flask, OpenAI API), AgriStore (Spring Boot, Spring AI, pgvector), Angular</p>
+												<p>
+													Two-person hackathon submission (team “AMA”) to the <strong>AI2SD Hackathon 2025</strong>, Agriculture Intelligente category (Country Finals). It packages two of the platforms above into one connected product story for Moroccan smallholder farmers:
+													<ul class="project-features">
+														<li><strong>Advice Layer:</strong> AgriMar delivers location-aware, multilingual agronomic guidance.</li>
+														<li><strong>Commerce Layer:</strong> AgriStore turns that advice into RAG-powered product recommendations.</li>
+														<li><strong>Product &amp; Go-to-Market Framing:</strong> Defined user scenarios, a freemium business model and a regional rollout plan, and proposed a third module (AgriCom, a farmer social network) as part of the vision.</li>
+													</ul>
+												</p>
+												<div class="project-links">
+													<a href="https://github.com/Mehd1slh/AGRIMAR" class="button small">View On GitHub</a><br>
+													<a href="https://github.com/Mehd1slh/AGRISTORE-__-Abdelhakim-AKCHOUCH---El-Mehdi-SALIH-" class="button small">View On GitHub</a>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<!-- Project: EcoSentinel – Environmental AI Platform -->
+									<div class="project-container">
+										<div class="project">
+											<div class="project-image-top">
+												<img src="images/ecosentinel.png" alt="EcoSentinel Environmental AI Platform" />
+											</div>
+											<div class="project-content">
+												<h3>EcoSentinel: Smart Pollution and Carbon Response Orchestrator</h3>
+												<p><strong>Technologies:</strong> Python (Flask), Angular, Tailwind, PostgreSQL, n8n, Hugging Face, GPT-4, Sentinel-2, Docker</p>
+												<p>
+													Prototype of an AI-powered environmental alert platform for local governments, grounded in a real case study: monitoring the Oued Abou Regreg river (Rabat–Salé) and detecting waste accumulation in Salé Al Jadida with actual satellite data.
+													<ul class="project-features">
+														<li><strong>Satellite Monitoring:</strong> Estimates water pollution levels from <strong>Sentinel-2</strong> imagery using NDWI, NDMI, SWIR and true-color composites.</li>
+														<li><strong>AI Vision &amp; NLP:</strong> Hugging Face vision models classify illegal dumps and pollution; NER and sentiment analysis process citizen reports; GPT-4 summarizes alerts into readable recommendations.</li>
+														<li><strong>Risk Scoring &amp; Citizen Reporting:</strong> Incidents are scored low / medium / high urgency, with geo-tagged submission from web and mobile.</li>
+														<li><strong>Automated Orchestration:</strong> An <strong>n8n</strong> workflow runs every 6 hours: it fetches OpenAQ air-quality data and fresh imagery, runs classification and summarization, then updates a live map, emails stakeholders, logs to PostgreSQL and sends SMS/Telegram alerts when thresholds are exceeded.</li>
+													</ul>
+												</p>
+												<div class="project-links">
+													<a href="https://github.com/Mehd1slh/EcoSentinel" class="button small">View On GitHub</a>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<!-- Project: Citoyens Commun'ITy – Hackathon -->
+									<div class="project-container">
+										<div class="project">
+											<div class="project-image-top">
+												<img src="images/citoyens.png" alt="Citoyens Commun'ITy Ambassador Platform" />
+											</div>
+											<div class="project-content">
+												<h3>Citoyens Commun'ITy: Ambassador Management Platform</h3>
+												<p><strong>Technologies:</strong> Python (Flask), JavaScript, Chart.js, Leaflet, DOCX/XML</p>
+												<p>
+													Hackathon prototype built in about 48 hours at the Commun'ITy Hackathon (Marrakech, March 2026) for “Les Citoyens”, a national network of civic ambassadors:
+													<ul class="project-features">
+														<li><strong>Ambassador Dashboard &amp; Admin Console:</strong> Personal stats, events and messages for ambassadors; KPIs, membership-growth charts (Chart.js) and a regional activity map (Leaflet) for admins.</li>
+														<li><strong>Onboarding &amp; Events:</strong> Multi-step ambassador application workflow and event participation requests.</li>
+														<li><strong>Automated Reporting:</strong> A Flask endpoint generates official <code>.docx</code> activity reports by injecting data into a Word template through direct <code>zipfile</code>/XML manipulation, with no heavy templating library.</li>
+													</ul>
+												</p>
+												<div class="project-links">
+													<a href="https://github.com/Mehd1slh/digitoyens" class="button small">View On GitHub</a>
 												</div>
 											</div>
 										</div>
