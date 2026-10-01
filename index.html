@@ -66,7 +66,7 @@
 							<nav>
 								<ul>
 									<li><a href="#intro" data-i18n="nav_intro">Intro</a></li>
-									<li><a href="#Projects" data-i18n="nav_work">Work</a></li>
+									<li><a href="#Projects" data-i18n="nav_project">Projects</a></li>
 									<li><a href="#about" data-i18n="nav_about">About</a></li>
 									<li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
 								</ul>
@@ -79,12 +79,12 @@
 							<!-- Intro -->
 								<!-- Intro -->
 								<article id="intro">
-									<h2 class="major">Intro</h2>
+									<h2 class="major" data-i18n="h2_intro">Intro</h2>
 									<!--
 									<span class="image main"><img src="images/pic01.jpg" alt="" /></span>
 									-->
 
-									<p>
+									<p data-i18n="intro_p">
 										Hello! I’m El Mehdi Salih, a Master’s student in <strong>Intelligent Processing Systems (IPS)</strong> at the Faculty of Sciences of Rabat, specializing in <strong>Artificial Intelligence, Retrieval-Augmented Generation (RAG), and data-driven systems</strong>.<br><br>
 
 										I design and build <strong>AI-powered applications</strong> that combine modern software engineering practices (Spring Boot, Angular, microservices) with <strong>local and privacy-preserving AI pipelines</strong>. My work focuses on transforming research concepts into practical, efficient systems, particularly in <strong>document intelligence, adaptive retrieval, and AI-assisted decision support</strong>.<br><br>
@@ -96,7 +96,7 @@
 
 							<!-- Projects -->
 								<article id="Projects">
-									<h2 class="major">Projects</h2>
+									<h2 class="major" data-i18n="h2_projects">Projects</h2>
 
 									<!-- Project 1: DocBot – Offline Local RAG (ACB + Project Sentinel) -->
 									<div class="project-container">
@@ -105,37 +105,37 @@
 												<img src="images/docbot.png" alt="DocBot Offline RAG Chatbot" />
 											</div>
 											<div class="project-content">
-												<h3>DocBot: Offline Local RAG — Adaptive Context Budgeting &amp; Project Sentinel</h3>
+												<h3 data-i18n="p1_01">DocBot: Offline Local RAG — Adaptive Context Budgeting &amp; Project Sentinel</h3>
 												<p><strong>Technologies:</strong> Python, LangChain, Ollama (Qwen3-1.7B), PostgreSQL, pgvector, nomic-embed-text, BM25, TinyBERT, Gradio, Docker</p>
 												<p>
-													Built a fully <strong>offline, privacy-preserving PDF chatbot</strong> using Retrieval-Augmented Generation, then used it as the base system for <strong>two published research projects</strong> (first author on both), each targeting a different weakness of small local RAG pipelines. Everything runs on modest hardware (11th-gen Intel i5, 8GB RAM, CPU only):
+													<span data-i18n="p1_02">Built a fully <strong>offline, privacy-preserving PDF chatbot</strong> using Retrieval-Augmented Generation, then used it as the base system for <strong>two published research projects</strong> (first author on both), each targeting a different weakness of small local RAG pipelines. Everything runs on modest hardware (11th-gen Intel i5, 8GB RAM, CPU only):</span>
 													<ul class="project-features">
-														<li><strong>Local RAG Pipeline:</strong> Qwen3-1.7B served through Ollama, with nomic-embed-text embeddings and PostgreSQL + pgvector storage, so no data leaves the machine</li>
-														<li><strong>Ingestion &amp; Storage:</strong> PDFs chunked at 512 tokens with 64-token overlap, stored in cleanable, session-based indices</li>
-														<li><strong>Real-Time Streaming &amp; Logging:</strong> Token-level response streaming via threaded callbacks, with per-query logs (retrieval depth, tokens, latency) exportable to CSV</li>
+														<li data-i18n="p1_03"><strong>Local RAG Pipeline:</strong> Qwen3-1.7B served through Ollama, with nomic-embed-text embeddings and PostgreSQL + pgvector storage, so no data leaves the machine</li>
+														<li data-i18n="p1_04"><strong>Ingestion &amp; Storage:</strong> PDFs chunked at 512 tokens with 64-token overlap, stored in cleanable, session-based indices</li>
+														<li data-i18n="p1_05"><strong>Real-Time Streaming &amp; Logging:</strong> Token-level response streaming via threaded callbacks, with per-query logs (retrieval depth, tokens, latency) exportable to CSV</li>
 													</ul>
-													<strong>Research 1 — Adaptive Context Budgeting (ACB), solo research:</strong>
+													<strong data-i18n="p1_06">Research 1 — Adaptive Context Budgeting (ACB), solo research:</strong>
 													<ul class="project-features">
-														<li><strong>Problem:</strong> A fixed top-k wastes tokens and latency on easy queries. ACB picks the retrieval depth per query instead.</li>
-														<li><strong>Method:</strong> Retrieval stops early based on the similarity gap between consecutive chunks and the entropy of the similarity distribution, and is adjusted by query length.</li>
-														<li><strong>Evaluation:</strong> Compared with a fixed top-5 baseline on 3 academic PDFs and 30 questions, scored by 3 independent human judges.</li>
-														<li><strong>Result:</strong> Latency cut by ~30% (29.5s to 20.6s) and prompt size by ~38% (733 to 454 tokens), with human-judged F1 of 0.748 against 0.811 for the fixed baseline.</li>
+														<li data-i18n="p1_07"><strong>Problem:</strong> A fixed top-k wastes tokens and latency on easy queries. ACB picks the retrieval depth per query instead.</li>
+														<li data-i18n="p1_08"><strong>Method:</strong> Retrieval stops early based on the similarity gap between consecutive chunks and the entropy of the similarity distribution, and is adjusted by query length.</li>
+														<li data-i18n="p1_09"><strong>Evaluation:</strong> Compared with a fixed top-5 baseline on 3 academic PDFs and 30 questions, scored by 3 independent human judges.</li>
+														<li data-i18n="p1_10"><strong>Result:</strong> Latency cut by ~30% (29.5s to 20.6s) and prompt size by ~38% (733 to 454 tokens), with human-judged F1 of 0.748 against 0.811 for the fixed baseline.</li>
 													</ul>
-													<strong>Research 2 — Project Sentinel, team research (3 authors):</strong>
+													<strong data-i18n="p1_11">Research 2 — Project Sentinel, team research (3 authors):</strong>
 													<ul class="project-features">
-														<li><strong>Problem:</strong> Small models hallucinate when retrieval returns plausible but irrelevant “distractor” chunks.</li>
-														<li><strong>Semantic Gatekeeper:</strong> A fine-tuned <strong>TinyBERT cross-encoder</strong> scores each (query, chunk) pair for factual utility and discards chunks below the threshold.</li>
-														<li><strong>Early Exit:</strong> If no retrieved chunk passes the threshold, the system politely refuses instead of letting the generator answer from unsupported context.</li>
-														<li><strong>Hybrid Retrieval:</strong> BM25 keyword search and pgvector dense search run in parallel and are fused with Reciprocal Rank Fusion.</li>
-														<li><strong>Open Artifacts:</strong> Built and released a labeled dataset derived from HotpotQA (69k training and 7k validation pairs), plus the fine-tuned model, on Hugging Face.</li>
-														<li><strong>Result:</strong> 5.92% hallucination rate at 5.3ms CPU inference latency (ROC-AUC 0.906), at the cost of lower fact recall (60% at the strict threshold).</li>
+														<li data-i18n="p1_12"><strong>Problem:</strong> Small models hallucinate when retrieval returns plausible but irrelevant “distractor” chunks.</li>
+														<li data-i18n="p1_13"><strong>Semantic Gatekeeper:</strong> A fine-tuned <strong>TinyBERT cross-encoder</strong> scores each (query, chunk) pair for factual utility and discards chunks below the threshold.</li>
+														<li data-i18n="p1_14"><strong>Early Exit:</strong> If no retrieved chunk passes the threshold, the system politely refuses instead of letting the generator answer from unsupported context.</li>
+														<li data-i18n="p1_15"><strong>Hybrid Retrieval:</strong> BM25 keyword search and pgvector dense search run in parallel and are fused with Reciprocal Rank Fusion.</li>
+														<li data-i18n="p1_16"><strong>Open Artifacts:</strong> Built and released a labeled dataset derived from HotpotQA (69k training and 7k validation pairs), plus the fine-tuned model, on Hugging Face.</li>
+														<li data-i18n="p1_17"><strong>Result:</strong> 5.92% hallucination rate at 5.3ms CPU inference latency (ROC-AUC 0.906), at the cost of lower fact recall (60% at the strict threshold).</li>
 													</ul>
 												</p>
 												<div class="project-links">
-													<a href="https://github.com/Mehd1slh/DocBot" class="button small">ACB Version – GitHub</a><br>
-													<a href="https://github.com/Abdelhakim2001/DocBot---DL" class="button small">Project Sentinel Version – GitHub</a><br>
-													<a href="https://huggingface.co/Mehd1SLH/LF_BERT_v1" class="button small">Gatekeeper Model – Hugging Face</a><br>
-													<a href="https://huggingface.co/datasets/Mehd1SLH/Sentinel_dataset" class="button small">Sentinel Dataset – Hugging Face</a>
+													<a href="https://github.com/Mehd1slh/DocBot" class="button small" data-i18n="btn_acb_version_github">ACB Version – GitHub</a><br>
+													<a href="https://github.com/Abdelhakim2001/DocBot---DL" class="button small" data-i18n="btn_project_sentinel_version_git">Project Sentinel Version – GitHub</a><br>
+													<a href="https://huggingface.co/Mehd1SLH/LF_BERT_v1" class="button small" data-i18n="btn_gatekeeper_model_hugging_fac">Gatekeeper Model – Hugging Face</a><br>
+													<a href="https://huggingface.co/datasets/Mehd1SLH/Sentinel_dataset" class="button small" data-i18n="btn_sentinel_dataset_hugging_fac">Sentinel Dataset – Hugging Face</a>
 												</div>
 											</div>
 										</div>
@@ -148,24 +148,24 @@
 												<img src="images/egmr.png" alt="EGMR Entropy-Guided Matryoshka Retrieval" />
 											</div>
 											<div class="project-content">
-												<h3>EGMR: Entropy-Guided Matryoshka Retrieval — Master's Thesis (in progress)</h3>
+												<h3 data-i18n="p2_01">EGMR: Entropy-Guided Matryoshka Retrieval — Master's Thesis (in progress)</h3>
 												<p><strong>Technologies:</strong> Python, Ollama (Qwen3-1.7B), nomic-embed-text, FAISS, Qdrant, BM25, RAGAS, MLflow, Podman</p>
 												<p>
-													Master's thesis research on <strong>per-question adaptive retrieval for resource-constrained biomedical RAG</strong>. EGMR routes each question between a compact (64-dim) and a full-resolution (768-dim) dense index using a training-free uncertainty signal from a small local model, then stress-tests whether that routing really tracks question difficulty:
+													<span data-i18n="p2_02">Master's thesis research on <strong>per-question adaptive retrieval for resource-constrained biomedical RAG</strong>. EGMR routes each question between a compact (64-dim) and a full-resolution (768-dim) dense index using a training-free uncertainty signal from a small local model, then stress-tests whether that routing really tracks question difficulty:</span>
 													<ul class="project-features">
-														<li><strong>Dual-Resolution Index:</strong> Built from a single Matryoshka embedding pass over 75,919 deduplicated PubMed snippets, served through both FAISS and Qdrant with an in-RAM / on-disk split matching clinic-scale hardware.</li>
-														<li><strong>Margin-Based Routing Gate:</strong> A logit-margin uncertainty signal from a no-context draft answer decides, per question, which index to search; calibrated against a declared 30% deep-search compute budget.</li>
-														<li><strong>Full Evaluation:</strong> Four generation tiers (zero-shot, oracle, static, routed) over the complete BioASQ Task 14b training set (5,729 questions, 22,916 generation calls), scored with BERTScore and RAGAS using a separate judge model.</li>
-														<li><strong>Diagnostic Audit:</strong> Paired Wilcoxon tests, Monte Carlo random-routing controls, bootstrapped AUC and Bonferroni-corrected correlation tests, plus root-cause analysis of five evaluation anomalies.</li>
+														<li data-i18n="p2_03"><strong>Dual-Resolution Index:</strong> Built from a single Matryoshka embedding pass over 75,919 deduplicated PubMed snippets, served through both FAISS and Qdrant with an in-RAM / on-disk split matching clinic-scale hardware.</li>
+														<li data-i18n="p2_04"><strong>Margin-Based Routing Gate:</strong> A logit-margin uncertainty signal from a no-context draft answer decides, per question, which index to search; calibrated against a declared 30% deep-search compute budget.</li>
+														<li data-i18n="p2_05"><strong>Full Evaluation:</strong> Four generation tiers (zero-shot, oracle, static, routed) over the complete BioASQ Task 14b training set (5,729 questions, 22,916 generation calls), scored with BERTScore and RAGAS using a separate judge model.</li>
+														<li data-i18n="p2_06"><strong>Diagnostic Audit:</strong> Paired Wilcoxon tests, Monte Carlo random-routing controls, bootstrapped AUC and Bonferroni-corrected correlation tests, plus root-cause analysis of five evaluation anomalies.</li>
 													</ul>
-													<strong>Key Findings:</strong>
+													<strong data-i18n="p2_07">Key Findings:</strong>
 													<ul class="project-achievements">
-														<li>Significantly better retrieval than an always-shallow baseline (Wilcoxon p&lt;0.0001) at 30% of the deep-search cost.</li>
-														<li>Reported a negative result with equal prominence: the routing signal allocates budget effectively but does not identify which individual questions are hard (AUC ≈ 0.49 against a 0.5 chance baseline).</li>
+														<li data-i18n="p2_08">Significantly better retrieval than an always-shallow baseline (Wilcoxon p&lt;0.0001) at 30% of the deep-search cost.</li>
+														<li data-i18n="p2_09">Reported a negative result with equal prominence: the routing signal allocates budget effectively but does not identify which individual questions are hard (AUC ≈ 0.49 against a 0.5 chance baseline).</li>
 													</ul>
 												</p>
 												<div class="project-links">
-													<span class="button small disabled">Thesis &amp; Code (Coming Soon)</span>
+													<span class="button small disabled" data-i18n="btn_thesis_code_coming_soon">Thesis &amp; Code (Coming Soon)</span>
 												</div>
 											</div>
 										</div>
@@ -178,26 +178,26 @@
 												<img src="images/glhf.png" alt="GLHF Prosocial Gaming Platform" />
 											</div>
 											<div class="project-content">
-												<h3>GLHF: AI-Powered "Loyalty-as-a-Service" for Gaming</h3>
+												<h3 data-i18n="p3_01">GLHF: AI-Powered "Loyalty-as-a-Service" for Gaming</h3>
 												<p><strong>Technologies:</strong> Python, TinyBERT, LoRA (PEFT), Qwen/Llama (Ollama), FAISS, LangChain, Flask</p>
 												<p>
-													Developed a B2B platform designed to combat the "Toxicity Crisis" in competitive gaming. GLHF shifts the moderation paradigm from purely punitive bans to restorative justice and positive reinforcement:
+													<span data-i18n="p3_02">Developed a B2B platform designed to combat the "Toxicity Crisis" in competitive gaming. GLHF shifts the moderation paradigm from purely punitive bans to restorative justice and positive reinforcement:</span>
 													<ul class="project-features">
-														<li><strong>Hybrid AI Architecture:</strong> Orchestrated a three-layer system combining a high-speed classifier, a contextual RAG engine, and an incentive ledger.</li>
-														<li><strong>Gatekeeper Layer:</strong> Fine-tuned <strong>TinyBERT</strong> with <strong>LoRA adapters</strong> to achieve <50ms latency for real-time moderation, handling 90% of traffic locally.</li>
-														<li><strong>Contextual RAG Engine:</strong> Integrated a Retrieval-Augmented Generation pipeline using <strong>FAISS</strong> and <strong>Ollama</strong> to resolve cultural nuances and distinguish "competitive banter" from identity-based hate.</li>
-														<li><strong>Incentive Engine:</strong> Built a universal "Honor Profile" that translates prosocial behavior into economic rewards (skins, currency), effectively reducing "smurfing" incentives.</li>
-														<li><strong>Domain Adaptation:</strong> Leveraged <strong>PEFT</strong> to create tiny (~3MB) game-specific adapters (Valorant, LoL) instead of maintaining multiple large-scale models.</li>
+														<li data-i18n="p3_03"><strong>Hybrid AI Architecture:</strong> Orchestrated a three-layer system combining a high-speed classifier, a contextual RAG engine, and an incentive ledger.</li>
+														<li data-i18n="p3_04"><strong>Gatekeeper Layer:</strong> Fine-tuned <strong>TinyBERT</strong> with <strong>LoRA adapters</strong> to achieve <50ms latency for real-time moderation, handling 90% of traffic locally.</li>
+														<li data-i18n="p3_05"><strong>Contextual RAG Engine:</strong> Integrated a Retrieval-Augmented Generation pipeline using <strong>FAISS</strong> and <strong>Ollama</strong> to resolve cultural nuances and distinguish "competitive banter" from identity-based hate.</li>
+														<li data-i18n="p3_06"><strong>Incentive Engine:</strong> Built a universal "Honor Profile" that translates prosocial behavior into economic rewards (skins, currency), effectively reducing "smurfing" incentives.</li>
+														<li data-i18n="p3_07"><strong>Domain Adaptation:</strong> Leveraged <strong>PEFT</strong> to create tiny (~3MB) game-specific adapters (Valorant, LoL) instead of maintaining multiple large-scale models.</li>
 													</ul>
-													<strong>Impact & Ethical Focus:</strong>
+													<strong data-i18n="p3_08">Impact & Ethical Focus:</strong>
 													<ul class="project-achievements">
-														<li>Addressed the $29B annual industry loss caused by toxicity by focusing on player retention and community sustainability.</li>
-														<li>Implemented <strong>Radical Transparency</strong> by providing natural-language explanations for moderation decisions to rebuild player trust.</li>
-														<li>Optimized for low-resource environments, allowing the entire "Judge" model and vector database to run locally without cloud API costs.</li>
+														<li data-i18n="p3_09">Addressed the $29B annual industry loss caused by toxicity by focusing on player retention and community sustainability.</li>
+														<li data-i18n="p3_10">Implemented <strong>Radical Transparency</strong> by providing natural-language explanations for moderation decisions to rebuild player trust.</li>
+														<li data-i18n="p3_11">Optimized for low-resource environments, allowing the entire "Judge" model and vector database to run locally without cloud API costs.</li>
 													</ul>
 												</p>
 												<div class="project-links">
-													<a href="https://github.com/Mehd1slh/GLHF" class="button small">View On GitHub</a>
+													<a href="https://github.com/Mehd1slh/GLHF" class="button small" data-i18n="btn_view_on_github">View On GitHub</a>
 												</div>
 											</div>
 										</div>
@@ -210,26 +210,26 @@
 												<img src="images/mas_multi_robot.png" alt="Multi-Robot Delivery Coordination" />
 											</div>
 											<div class="project-content">
-												<h3>Autonomous Multi-Robot Warehouse Coordination System</h3>
+												<h3 data-i18n="p4_01">Autonomous Multi-Robot Warehouse Coordination System</h3>
 												<p><strong>Technologies:</strong> Python, Mesa Framework, Pygame, A* Algorithm, Matplotlib, Seaborn, FIPA-ACL</p>
 												<p>
-													Developed a robust <strong>Multi-Agent System (MAS)</strong> to simulate and optimize autonomous delivery robots within a warehouse environment. The project focused on comparing coordination strategies for task allocation and collision-free navigation:
+													<span data-i18n="p4_02">Developed a robust <strong>Multi-Agent System (MAS)</strong> to simulate and optimize autonomous delivery robots within a warehouse environment. The project focused on comparing coordination strategies for task allocation and collision-free navigation:</span>
 													<ul class="project-features">
-														<li><strong>AEIO Architecture:</strong> Structured the system into Coordination, Execution, and Environmental planes for scalable agent logic.</li>
-														<li><strong>Coordination Mechanisms:</strong> Implemented and benchmarked <strong>Contract Net Protocol (CNP)</strong> and <strong>Market-Based Auctions</strong> against greedy baselines to optimize battery efficiency.</li>
-														<li><strong>Pathfinding & Navigation:</strong> Integrated <strong>A* Search</strong> with Manhattan distance for optimal routing, complemented by reactive collision avoidance.</li>
-														<li><strong>Failure Recovery Logic:</strong> Designed a "Rescue Order" system where functional robots autonomously take over tasks from agents with battery failures or faults.</li>
-														<li><strong>Decision Modeling:</strong> Built agent logic using <strong>Finite State Machines (FSM)</strong> to manage transitions between Idle, Pickup, Delivery, and Recovery states.</li>
+														<li data-i18n="p4_03"><strong>AEIO Architecture:</strong> Structured the system into Coordination, Execution, and Environmental planes for scalable agent logic.</li>
+														<li data-i18n="p4_04"><strong>Coordination Mechanisms:</strong> Implemented and benchmarked <strong>Contract Net Protocol (CNP)</strong> and <strong>Market-Based Auctions</strong> against greedy baselines to optimize battery efficiency.</li>
+														<li data-i18n="p4_05"><strong>Pathfinding & Navigation:</strong> Integrated <strong>A* Search</strong> with Manhattan distance for optimal routing, complemented by reactive collision avoidance.</li>
+														<li data-i18n="p4_06"><strong>Failure Recovery Logic:</strong> Designed a "Rescue Order" system where functional robots autonomously take over tasks from agents with battery failures or faults.</li>
+														<li data-i18n="p4_07"><strong>Decision Modeling:</strong> Built agent logic using <strong>Finite State Machines (FSM)</strong> to manage transitions between Idle, Pickup, Delivery, and Recovery states.</li>
 													</ul>
-													<strong>Key Achievements:</strong>
+													<strong data-i18n="p4_08">Key Achievements:</strong>
 													<ul class="project-achievements">
-														<li>Evaluated performance metrics across Low, Medium, and High traffic scenarios to identify optimal agent-to-task ratios.</li>
-														<li>Reduced delivery delays by implementing capacity penalties, ensuring large robots prioritized heavy packages.</li>
-														<li>Visualized system dynamics (battery depletion, message cost, throughput) using real-time Mesa dashboards.</li>
+														<li data-i18n="p4_09">Evaluated performance metrics across Low, Medium, and High traffic scenarios to identify optimal agent-to-task ratios.</li>
+														<li data-i18n="p4_10">Reduced delivery delays by implementing capacity penalties, ensuring large robots prioritized heavy packages.</li>
+														<li data-i18n="p4_11">Visualized system dynamics (battery depletion, message cost, throughput) using real-time Mesa dashboards.</li>
 													</ul>
 												</p>
 												<div class="project-links">
-													<a href="https://github.com/Mehd1slh/multi-robot-delivery-coordination" class="button small">View On GitHub</a>
+													<a href="https://github.com/Mehd1slh/multi-robot-delivery-coordination" class="button small" data-i18n="btn_view_on_github">View On GitHub</a>
 												</div>
 											</div>
 										</div>
@@ -243,20 +243,20 @@
 												<img src="images/airdwa.png" alt="AirDwa Drone Medical Dispatch" />
 											</div>
 											<div class="project-content">
-												<h3>AirDwa: Voice-Activated Drone Medical Dispatch</h3>
+												<h3 data-i18n="p5_01">AirDwa: Voice-Activated Drone Medical Dispatch</h3>
 												<p><strong>Technologies:</strong> Python, Mesa, Solara, Whisper (fine-tuned), local LLM, OpenStreetMap, OpenTopography, Streamlit, Gradio, Pygame</p>
 												<p>
-													Team project (4 students): a multi-agent drone logistics simulation for emergency medical delivery in rural Morocco, where poor road access can turn a medical emergency fatal. A request spoken in Darija triggers a drone fleet that coordinates delivery on its own:
+													<span data-i18n="p5_02">Team project (4 students): a multi-agent drone logistics simulation for emergency medical delivery in rural Morocco, where poor road access can turn a medical emergency fatal. A request spoken in Darija triggers a drone fleet that coordinates delivery on its own:</span>
 													<ul class="project-features">
-														<li><strong>Darija Voice Activation:</strong> A fine-tuned <strong>Whisper</strong> ASR model combined with a local LLM extracts medical intent and destination from natural spoken Darija.</li>
-														<li><strong>Real-World Map Generation:</strong> Pick a bounding box anywhere in Morocco and the system maps pharmacies, telecom towers and impassable high-altitude terrain from <strong>OpenStreetMap</strong> and <strong>OpenTopography</strong> into the simulation grid.</li>
-														<li><strong>Auction-Based Dispatch:</strong> Drones bid on missions using a cost function that balances battery, flight distance and payload urgency.</li>
-														<li><strong>Patient-First Failure Recovery:</strong> On a critical in-flight failure, the dispatcher abandons the lost payload and immediately orders a fresh drone from the nearest hospital.</li>
-														<li><strong>Infrastructure Reuse:</strong> Existing rural telecom towers act as mid-flight charging points for the fleet.</li>
+														<li data-i18n="p5_03"><strong>Darija Voice Activation:</strong> A fine-tuned <strong>Whisper</strong> ASR model combined with a local LLM extracts medical intent and destination from natural spoken Darija.</li>
+														<li data-i18n="p5_04"><strong>Real-World Map Generation:</strong> Pick a bounding box anywhere in Morocco and the system maps pharmacies, telecom towers and impassable high-altitude terrain from <strong>OpenStreetMap</strong> and <strong>OpenTopography</strong> into the simulation grid.</li>
+														<li data-i18n="p5_05"><strong>Auction-Based Dispatch:</strong> Drones bid on missions using a cost function that balances battery, flight distance and payload urgency.</li>
+														<li data-i18n="p5_06"><strong>Patient-First Failure Recovery:</strong> On a critical in-flight failure, the dispatcher abandons the lost payload and immediately orders a fresh drone from the nearest hospital.</li>
+														<li data-i18n="p5_07"><strong>Infrastructure Reuse:</strong> Existing rural telecom towers act as mid-flight charging points for the fleet.</li>
 													</ul>
 												</p>
 												<div class="project-links">
-													<a href="https://github.com/Mehd1slh/AirDwa" class="button small">View On GitHub</a>
+													<a href="https://github.com/Mehd1slh/AirDwa" class="button small" data-i18n="btn_view_on_github">View On GitHub</a>
 												</div>
 											</div>
 										</div>
@@ -269,18 +269,18 @@
 												<img src="images/agristore.png" alt="AgriStore Smart Microservices Platform" />
 											</div>
 											<div class="project-content">
-												<h3>AgriStore: Smart Agricultural E-commerce Platform</h3>
+												<h3 data-i18n="p6_01">AgriStore: Smart Agricultural E-commerce Platform</h3>
 												<p><strong>Technologies:</strong> Spring Boot (microservices), Angular, Docker, OpenAI API, PostgreSQL</p>
 												<p>
-													Developed a containerized, AI-powered web application for selling agricultural products. Key features:
+													<span data-i18n="p6_02">Developed a containerized, AI-powered web application for selling agricultural products. Key features:</span>
 													<ul>
-														<li><strong>AI Chatbot Assistant:</strong> Integrated OpenAI API using RAG techniques to offer product guidance and seasonal recommendations.</li>
-														<li><strong>Smart Search:</strong> Implemented ChatGPT-4o Mini-based search engine for intuitive product discovery.</li>
-														<li><strong>DevOps:</strong> Fully dockerized microservices for easy deployment and scalability.</li>
+														<li data-i18n="p6_03"><strong>AI Chatbot Assistant:</strong> Integrated OpenAI API using RAG techniques to offer product guidance and seasonal recommendations.</li>
+														<li data-i18n="p6_04"><strong>Smart Search:</strong> Implemented ChatGPT-4o Mini-based search engine for intuitive product discovery.</li>
+														<li data-i18n="p6_05"><strong>DevOps:</strong> Fully dockerized microservices for easy deployment and scalability.</li>
 													</ul>
-													<strong>Impact:</strong> Improved user engagement and streamlined customer support with intelligent automation.
+													<span data-i18n="p6_06"><strong>Impact:</strong> Improved user engagement and streamlined customer support with intelligent automation.</span>
 												</p>
-												<a href="https://github.com/Mehd1slh/AGRISTORE-__-Abdelhakim-AKCHOUCH---El-Mehdi-SALIH-" class="button small">View On GitHub</a>
+												<a href="https://github.com/Mehd1slh/AGRISTORE-__-Abdelhakim-AKCHOUCH---El-Mehdi-SALIH-" class="button small" data-i18n="btn_view_on_github">View On GitHub</a>
 											</div>
 										</div>
 									</div>
@@ -292,26 +292,26 @@
 												<img src="images/agrimar.png" alt="AgriMar Agricultural Chatbot" />
 											</div>
 											<div class="project-content">
-												<h3>AgriMar: AI-Powered Agricultural Assistant</h3>
+												<h3 data-i18n="p7_01">AgriMar: AI-Powered Agricultural Assistant</h3>
 												<p><strong>Technologies:</strong> Python, Flask, OpenAI API, OpenStreetMap, OpenCage </p>
 												<p>
-													Developed an intelligent agricultural assistant that combines AI conversation with precise geospatial analysis to empower Moroccan farmers:
+													<span data-i18n="p7_02">Developed an intelligent agricultural assistant that combines AI conversation with precise geospatial analysis to empower Moroccan farmers:</span>
 													<ul class="project-features">
-														<li><strong>Smart Chat Interface:</strong> Engineered a context-aware chatbot that understands agricultural queries and provides location-specific recommendations</li>
-														<li><strong>Precision Weather System:</strong> Implemented dynamic forecasting that analyzes microclimate conditions based on exact GPS coordinates</li>
-														<li><strong>Automated Soil Reports:</strong> Designed a system that generates comprehensive soil analysis PDFs with visualized data trends and actionable insights</li>
-														<li><strong>Conversation Memory:</strong> Developed a robust chat history system that maintains context across sessions for continuous advisory support</li>
-														<li><strong>Advanced Geomapping:</strong> Solved regional data challenges by integrating OpenStreetMap with custom spatial filters for accurate location services</li>
+														<li data-i18n="p7_03"><strong>Smart Chat Interface:</strong> Engineered a context-aware chatbot that understands agricultural queries and provides location-specific recommendations</li>
+														<li data-i18n="p7_04"><strong>Precision Weather System:</strong> Implemented dynamic forecasting that analyzes microclimate conditions based on exact GPS coordinates</li>
+														<li data-i18n="p7_05"><strong>Automated Soil Reports:</strong> Designed a system that generates comprehensive soil analysis PDFs with visualized data trends and actionable insights</li>
+														<li data-i18n="p7_06"><strong>Conversation Memory:</strong> Developed a robust chat history system that maintains context across sessions for continuous advisory support</li>
+														<li data-i18n="p7_07"><strong>Advanced Geomapping:</strong> Solved regional data challenges by integrating OpenStreetMap with custom spatial filters for accurate location services</li>
 													</ul>
-													<strong>Key Achievements:</strong>
+													<strong data-i18n="p7_08">Key Achievements:</strong>
 													<ul class="project-achievements">
-														<li>Boosted response relevance by 40% through advanced prompt engineering techniques</li>
-														<li>Reduced farmers' research time by providing instant, hyper-localized agricultural intelligence</li>
-														<li>Transformed raw data into decision-ready insights through automated visualization and reporting</li>
+														<li data-i18n="p7_09">Boosted response relevance by 40% through advanced prompt engineering techniques</li>
+														<li data-i18n="p7_10">Reduced farmers' research time by providing instant, hyper-localized agricultural intelligence</li>
+														<li data-i18n="p7_11">Transformed raw data into decision-ready insights through automated visualization and reporting</li>
 													</ul>
 												</p>
 												<div class="project-links">
-													<a href="https://github.com/Mehd1slh/AGRIMAR" class="button small">View On GitHub</a>
+													<a href="https://github.com/Mehd1slh/AGRIMAR" class="button small" data-i18n="btn_view_on_github">View On GitHub</a>
 												</div>
 											</div>
 										</div>
@@ -324,19 +324,19 @@
 												<img src="images/agrilik.png" alt="AgriLik Smart Agriculture Ecosystem" />
 											</div>
 											<div class="project-content">
-												<h3>AgriLik: Smart Agriculture Ecosystem — AI2SD Hackathon 2025</h3>
+												<h3 data-i18n="p8_01">AgriLik: Smart Agriculture Ecosystem — AI2SD Hackathon 2025</h3>
 												<p><strong>Technologies:</strong> AgriMar (Flask, OpenAI API), AgriStore (Spring Boot, Spring AI, pgvector), Angular</p>
 												<p>
-													Two-person hackathon submission (team “AMA”) to the <strong>AI2SD Hackathon 2025</strong>, Agriculture Intelligente category (Country Finals). It packages two of the platforms above into one connected product story for Moroccan smallholder farmers:
+													<span data-i18n="p8_02">Two-person hackathon submission (team “AMA”) to the <strong>AI2SD Hackathon 2025</strong>, Agriculture Intelligente category (Country Finals). It packages two of the platforms above into one connected product story for Moroccan smallholder farmers:</span>
 													<ul class="project-features">
-														<li><strong>Advice Layer:</strong> AgriMar delivers location-aware, multilingual agronomic guidance.</li>
-														<li><strong>Commerce Layer:</strong> AgriStore turns that advice into RAG-powered product recommendations.</li>
-														<li><strong>Product &amp; Go-to-Market Framing:</strong> Defined user scenarios, a freemium business model and a regional rollout plan, and proposed a third module (AgriCom, a farmer social network) as part of the vision.</li>
+														<li data-i18n="p8_03"><strong>Advice Layer:</strong> AgriMar delivers location-aware, multilingual agronomic guidance.</li>
+														<li data-i18n="p8_04"><strong>Commerce Layer:</strong> AgriStore turns that advice into RAG-powered product recommendations.</li>
+														<li data-i18n="p8_05"><strong>Product &amp; Go-to-Market Framing:</strong> Defined user scenarios, a freemium business model and a regional rollout plan, and proposed a third module (AgriCom, a farmer social network) as part of the vision.</li>
 													</ul>
 												</p>
 												<div class="project-links">
-													<a href="https://github.com/Mehd1slh/AGRIMAR" class="button small">View On GitHub</a><br>
-													<a href="https://github.com/Mehd1slh/AGRISTORE-__-Abdelhakim-AKCHOUCH---El-Mehdi-SALIH-" class="button small">View On GitHub</a>
+													<a href="https://github.com/Mehd1slh/AGRIMAR" class="button small" data-i18n="btn_view_on_github">View On GitHub</a><br>
+													<a href="https://github.com/Mehd1slh/AGRISTORE-__-Abdelhakim-AKCHOUCH---El-Mehdi-SALIH-" class="button small" data-i18n="btn_view_on_github">View On GitHub</a>
 												</div>
 											</div>
 										</div>
@@ -349,19 +349,19 @@
 												<img src="images/ecosentinel.png" alt="EcoSentinel Environmental AI Platform" />
 											</div>
 											<div class="project-content">
-												<h3>EcoSentinel: Smart Pollution and Carbon Response Orchestrator</h3>
+												<h3 data-i18n="p9_01">EcoSentinel: Smart Pollution and Carbon Response Orchestrator</h3>
 												<p><strong>Technologies:</strong> Python (Flask), Angular, Tailwind, PostgreSQL, n8n, Hugging Face, GPT-4, Sentinel-2, Docker</p>
 												<p>
-													Prototype of an AI-powered environmental alert platform for local governments, grounded in a real case study: monitoring the Oued Abou Regreg river (Rabat–Salé) and detecting waste accumulation in Salé Al Jadida with actual satellite data.
+													<span data-i18n="p9_02">Prototype of an AI-powered environmental alert platform for local governments, grounded in a real case study: monitoring the Oued Abou Regreg river (Rabat–Salé) and detecting waste accumulation in Salé Al Jadida with actual satellite data.</span>
 													<ul class="project-features">
-														<li><strong>Satellite Monitoring:</strong> Estimates water pollution levels from <strong>Sentinel-2</strong> imagery using NDWI, NDMI, SWIR and true-color composites.</li>
-														<li><strong>AI Vision &amp; NLP:</strong> Hugging Face vision models classify illegal dumps and pollution; NER and sentiment analysis process citizen reports; GPT-4 summarizes alerts into readable recommendations.</li>
-														<li><strong>Risk Scoring &amp; Citizen Reporting:</strong> Incidents are scored low / medium / high urgency, with geo-tagged submission from web and mobile.</li>
-														<li><strong>Automated Orchestration:</strong> An <strong>n8n</strong> workflow runs every 6 hours: it fetches OpenAQ air-quality data and fresh imagery, runs classification and summarization, then updates a live map, emails stakeholders, logs to PostgreSQL and sends SMS/Telegram alerts when thresholds are exceeded.</li>
+														<li data-i18n="p9_03"><strong>Satellite Monitoring:</strong> Estimates water pollution levels from <strong>Sentinel-2</strong> imagery using NDWI, NDMI, SWIR and true-color composites.</li>
+														<li data-i18n="p9_04"><strong>AI Vision &amp; NLP:</strong> Hugging Face vision models classify illegal dumps and pollution; NER and sentiment analysis process citizen reports; GPT-4 summarizes alerts into readable recommendations.</li>
+														<li data-i18n="p9_05"><strong>Risk Scoring &amp; Citizen Reporting:</strong> Incidents are scored low / medium / high urgency, with geo-tagged submission from web and mobile.</li>
+														<li data-i18n="p9_06"><strong>Automated Orchestration:</strong> An <strong>n8n</strong> workflow runs every 6 hours: it fetches OpenAQ air-quality data and fresh imagery, runs classification and summarization, then updates a live map, emails stakeholders, logs to PostgreSQL and sends SMS/Telegram alerts when thresholds are exceeded.</li>
 													</ul>
 												</p>
 												<div class="project-links">
-													<a href="https://github.com/Mehd1slh/EcoSentinel" class="button small">View On GitHub</a>
+													<a href="https://github.com/Mehd1slh/EcoSentinel" class="button small" data-i18n="btn_view_on_github">View On GitHub</a>
 												</div>
 											</div>
 										</div>
@@ -374,18 +374,18 @@
 												<img src="images/citoyens.png" alt="Citoyens Commun'ITy Ambassador Platform" />
 											</div>
 											<div class="project-content">
-												<h3>Citoyens Commun'ITy: Ambassador Management Platform</h3>
+												<h3 data-i18n="p10_01">Citoyens Commun'ITy: Ambassador Management Platform</h3>
 												<p><strong>Technologies:</strong> Python (Flask), JavaScript, Chart.js, Leaflet, DOCX/XML</p>
 												<p>
-													Hackathon prototype built in about 48 hours at the Commun'ITy Hackathon (Marrakech, March 2026) for “Les Citoyens”, a national network of civic ambassadors:
+													<span data-i18n="p10_02">Hackathon prototype built in about 48 hours at the Commun'ITy Hackathon (Marrakech, March 2026) for “Les Citoyens”, a national network of civic ambassadors:</span>
 													<ul class="project-features">
-														<li><strong>Ambassador Dashboard &amp; Admin Console:</strong> Personal stats, events and messages for ambassadors; KPIs, membership-growth charts (Chart.js) and a regional activity map (Leaflet) for admins.</li>
-														<li><strong>Onboarding &amp; Events:</strong> Multi-step ambassador application workflow and event participation requests.</li>
-														<li><strong>Automated Reporting:</strong> A Flask endpoint generates official <code>.docx</code> activity reports by injecting data into a Word template through direct <code>zipfile</code>/XML manipulation, with no heavy templating library.</li>
+														<li data-i18n="p10_03"><strong>Ambassador Dashboard &amp; Admin Console:</strong> Personal stats, events and messages for ambassadors; KPIs, membership-growth charts (Chart.js) and a regional activity map (Leaflet) for admins.</li>
+														<li data-i18n="p10_04"><strong>Onboarding &amp; Events:</strong> Multi-step ambassador application workflow and event participation requests.</li>
+														<li data-i18n="p10_05"><strong>Automated Reporting:</strong> A Flask endpoint generates official <code>.docx</code> activity reports by injecting data into a Word template through direct <code>zipfile</code>/XML manipulation, with no heavy templating library.</li>
 													</ul>
 												</p>
 												<div class="project-links">
-													<a href="https://github.com/Mehd1slh/digitoyens" class="button small">View On GitHub</a>
+													<a href="https://github.com/Mehd1slh/digitoyens" class="button small" data-i18n="btn_view_on_github">View On GitHub</a>
 												</div>
 											</div>
 										</div>
@@ -398,18 +398,18 @@
 												<img src="images/library.jfif" alt="Library Management System" />
 											</div>
 											<div class="project-content">
-												<h3>Library Management System – Business Intelligence Project</h3>
+												<h3 data-i18n="p11_01">Library Management System – Business Intelligence Project</h3>
 												<p><strong>Technologies:</strong> PMB, PHP, MySQL, Python (pandas), Power BI</p>
 												<p>
-													Designed and deployed a library system based on real-world CSV datasets in Arabic and French:
+													<span data-i18n="p11_02">Designed and deployed a library system based on real-world CSV datasets in Arabic and French:</span>
 													<ul>
-														<li><strong>Preprocessing:</strong> Cleaned and normalized 20k+ multilingual records for integration into PMB.</li>
-														<li><strong>MCD Customization:</strong> Simplified and adapted the database schema to essential business needs.</li>
-														<li><strong>Visualization:</strong> Generated insights and performance reports using Power BI and Chart.js.</li>
+														<li data-i18n="p11_03"><strong>Preprocessing:</strong> Cleaned and normalized 20k+ multilingual records for integration into PMB.</li>
+														<li data-i18n="p11_04"><strong>MCD Customization:</strong> Simplified and adapted the database schema to essential business needs.</li>
+														<li data-i18n="p11_05"><strong>Visualization:</strong> Generated insights and performance reports using Power BI and Chart.js.</li>
 													</ul>
-													<strong>Impact:</strong> Enabled efficient library cataloging and inventory tracking across language barriers.
+													<span data-i18n="p11_06"><strong>Impact:</strong> Enabled efficient library cataloging and inventory tracking across language barriers.</span>
 												</p>
-												<a href="https://github.com/Mehd1slh/BI_Project" class="button small">View On GitHub</a>
+												<a href="https://github.com/Mehd1slh/BI_Project" class="button small" data-i18n="btn_view_on_github">View On GitHub</a>
 											</div>
 										</div>
 									</div>
@@ -421,18 +421,18 @@
 												<img src="images/energy.jfif" alt="House Energy Data Mining" />
 											</div>
 											<div class="project-content">
-												<h3>House Energy Consumption Analysis – Data Mining</h3>
+												<h3 data-i18n="p12_01">House Energy Consumption Analysis – Data Mining</h3>
 												<p><strong>Technologies:</strong> Python, Scikit-learn, Pandas, Matplotlib , Mlextend</p>
 												<p>
-													Analyzed a large energy dataset to uncover usage patterns and predict consumption:
+													<span data-i18n="p12_02">Analyzed a large energy dataset to uncover usage patterns and predict consumption:</span>
 													<ul>
-														<li><strong>Clustering:</strong> Applied K-means to segment homes based on usage behavior.</li>
-														<li><strong>Association Rules:</strong> Extracted high-confidence rules for appliance usage timing.</li>
-														<li><strong>Prediction:</strong> Implemented k-NN to predict daily energy consumption per household.</li>
+														<li data-i18n="p12_03"><strong>Clustering:</strong> Applied K-means to segment homes based on usage behavior.</li>
+														<li data-i18n="p12_04"><strong>Association Rules:</strong> Extracted high-confidence rules for appliance usage timing.</li>
+														<li data-i18n="p12_05"><strong>Prediction:</strong> Implemented k-NN to predict daily energy consumption per household.</li>
 													</ul>
-													<strong>Impact:</strong> Provided actionable insights into energy saving for households.
+													<span data-i18n="p12_06"><strong>Impact:</strong> Provided actionable insights into energy saving for households.</span>
 												</p>
-												<a href="https://github.com/Mehd1slh/Household_Energy_Consumption_Patterns" class="button small">View On GitHub</a>
+												<a href="https://github.com/Mehd1slh/Household_Energy_Consumption_Patterns" class="button small" data-i18n="btn_view_on_github">View On GitHub</a>
 											</div>
 										</div>
 									</div>
@@ -442,9 +442,9 @@
 
 							<!-- About -->
 								<article id="about">
-									<h2 class="major">About</h2>
+									<h2 class="major" data-i18n="h2_about">About</h2>
 									<span class="image main"><img src="images/me_shiftlab.jpg" alt="" /></span>
-									<p>
+									<p data-i18n="about_p">
 										My work focuses on designing <strong>intelligent systems that remain efficient, reliable, and scalable under real-world constraints</strong>. I am particularly interested in applied artificial intelligence, data-driven architectures, and Retrieval-Augmented Generation (RAG), with an emphasis on <strong>performance optimization, privacy, and system robustness</strong>.<br><br>
 
 										Through academic and engineering projects, I have developed a structured approach that spans <strong>problem analysis, algorithmic design, and end-to-end implementation</strong>. This includes building local RAG pipelines, optimizing context usage, designing data and microservices architectures, and evaluating system performance using both quantitative and human-centered metrics.<br><br>
@@ -456,31 +456,31 @@
 
 							<!-- Contact -->
 								<article id="contact">
-									<h2 class="major">Contact</h2>
+									<h2 class="major" data-i18n="h2_contact">Contact</h2>
 									<form method="post" action="https://formspree.io/f/mblojoak">
 										<div class="fields">
 											<div class="field half">
-												<label for="name">Name</label>
+												<label for="name" data-i18n="form_name">Name</label>
 												<input type="text" name="name" id="name" />
 											</div>
 											<div class="field half">
-												<label for="email">Email</label>
+												<label for="email" data-i18n="form_email">Email</label>
 												<input type="text" name="email" id="email" />
 											</div>
 											<div class="field">
-												<label for="message">Message</label>
+												<label for="message" data-i18n="form_message">Message</label>
 												<textarea name="message" id="message" rows="4"></textarea>
 											</div>
 										</div>
 										<ul class="actions">
 											<input type="submit" value="Send Message" data-i18n-value="form_submit" />
-											<li><input type="reset" value="Reset" /></li>
+											<li><input type="reset" value="Reset" data-i18n-value="form_reset" /></li>
 										</ul>
 									</form>
 									<ul class="icons">
 										<li><a href="https://www.linkedin.com/in/el-mehdi-salih-4400442b6/" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
 
-										<li><a href="mailto:elmehdi.salih13@gmail.com" class="icon fas fa-envelope"><span class="label">Email</span></a></li>
+										<li><a href="mailto:elmehdi.salih13@gmail.com" class="icon fas fa-envelope"><span class="label" data-i18n="form_email">Email</span></a></li>
 
 										<li><a href="https://github.com/Mehd1slh" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
 									</ul>
@@ -489,7 +489,7 @@
 
 					<!-- Footer -->
 						<footer id="footer">
-							<p class="copyright">&copy;Made by Mehdi | 2025</p>
+							<p class="copyright" data-i18n="footer_copy">&copy;Made by Mehdi | 2025</p>
 						</footer>
 
 				</div>
