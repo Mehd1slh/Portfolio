@@ -1,4 +1,4 @@
-	<!DOCTYPE HTML>
+<!DOCTYPE HTML>
 	<!--
 		Dimension by HTML5 UP
 		html5up.net | @ajlkn
@@ -69,33 +69,44 @@
 								<article id="Projects">
 									<h2 class="major">Projects</h2>
 
-									<!-- Project 1: DocBot – Offline RAG PDF Chatbot -->
+									<!-- Project 1: DocBot – Offline Local RAG (ACB + Project Sentinel) -->
 									<div class="project-container">
 										<div class="project">
 											<div class="project-image-top">
 												<img src="images/docbot.png" alt="DocBot Offline RAG Chatbot" />
 											</div>
 											<div class="project-content">
-												<h3>DocBot: Offline PDF Chatbot using Local RAG</h3>
-												<p><strong>Technologies:</strong> Python, LangChain, Ollama, PostgreSQL, pgvector, Gradio, Docker</p>
+												<h3>DocBot: Offline Local RAG — Adaptive Context Budgeting &amp; Project Sentinel</h3>
+												<p><strong>Technologies:</strong> Python, LangChain, Ollama (Qwen3-1.7B), PostgreSQL, pgvector, nomic-embed-text, BM25, TinyBERT, Gradio, Docker</p>
 												<p>
-													Designed and implemented a fully <strong>offline, privacy-preserving AI chatbot</strong> that enables users to interact with PDF documents using Retrieval-Augmented Generation (RAG):
+													Built a fully <strong>offline, privacy-preserving PDF chatbot</strong> using Retrieval-Augmented Generation, then used it as the base system for <strong>two published research projects</strong> (first author on both), each targeting a different weakness of small local RAG pipelines. Everything runs on modest hardware (11th-gen Intel i5, 8GB RAM, CPU only):
 													<ul class="project-features">
-														<li><strong>Local RAG Pipeline:</strong> Built with Qwen3-1.7B (LLM) and nomic-embed-text for embeddings, eliminating cloud dependency</li>
-														<li><strong>Vector Storage:</strong> PostgreSQL + pgvector with cleanable, session-based indices</li>
-														<li><strong>Real-Time Streaming:</strong> Token-level response streaming using threaded callbacks</li>
-														<li><strong>Evaluation:</strong> Benchmarked across academic PDFs using human-judged F1 score and latency analysis</li>
-														<li><strong>Low-Resource Optimization:</strong> Designed to run efficiently on ≤8GB RAM systems</li>
+														<li><strong>Local RAG Pipeline:</strong> Qwen3-1.7B served through Ollama, with nomic-embed-text embeddings and PostgreSQL + pgvector storage, so no data leaves the machine</li>
+														<li><strong>Ingestion &amp; Storage:</strong> PDFs chunked at 512 tokens with 64-token overlap, stored in cleanable, session-based indices</li>
+														<li><strong>Real-Time Streaming &amp; Logging:</strong> Token-level response streaming via threaded callbacks, with per-query logs (retrieval depth, tokens, latency) exportable to CSV</li>
 													</ul>
-													<strong>Research Extension:</strong>
-													<ul class="project-achievements">
-														<li>Proposed <strong>Adaptive Context Budgeting (ACB)</strong> to dynamically adjust retrieval depth</li>
-														<li>Reduced latency by ~30% and prompt size by ~38% while preserving answer quality</li>
+													<strong>Research 1 — Adaptive Context Budgeting (ACB), solo research:</strong>
+													<ul class="project-features">
+														<li><strong>Problem:</strong> A fixed top-k wastes tokens and latency on easy queries. ACB picks the retrieval depth per query instead.</li>
+														<li><strong>Method:</strong> Retrieval stops early based on the similarity gap between consecutive chunks and the entropy of the similarity distribution, and is adjusted by query length.</li>
+														<li><strong>Evaluation:</strong> Compared with a fixed top-5 baseline on 3 academic PDFs and 30 questions, scored by 3 independent human judges.</li>
+														<li><strong>Result:</strong> Latency cut by ~30% (29.5s to 20.6s) and prompt size by ~38% (733 to 454 tokens), with human-judged F1 of 0.748 against 0.811 for the fixed baseline.</li>
+													</ul>
+													<strong>Research 2 — Project Sentinel, team research (3 authors):</strong>
+													<ul class="project-features">
+														<li><strong>Problem:</strong> Small models hallucinate when retrieval returns plausible but irrelevant “distractor” chunks.</li>
+														<li><strong>Semantic Gatekeeper:</strong> A fine-tuned <strong>TinyBERT cross-encoder</strong> scores each (query, chunk) pair for factual utility and discards chunks below the threshold.</li>
+														<li><strong>Early Exit:</strong> If no retrieved chunk passes the threshold, the system politely refuses instead of letting the generator answer from unsupported context.</li>
+														<li><strong>Hybrid Retrieval:</strong> BM25 keyword search and pgvector dense search run in parallel and are fused with Reciprocal Rank Fusion.</li>
+														<li><strong>Open Artifacts:</strong> Built and released a labeled dataset derived from HotpotQA (69k training and 7k validation pairs), plus the fine-tuned model, on Hugging Face.</li>
+														<li><strong>Result:</strong> 5.92% hallucination rate at 5.3ms CPU inference latency (ROC-AUC 0.906), at the cost of lower fact recall (60% at the strict threshold).</li>
 													</ul>
 												</p>
 												<div class="project-links">
-													<span class="button small disabled">Technical Report (Coming Soon)</span><br>
-													<span class="button small disabled">Research Paper (Coming Soon)</span>
+													<a href="https://github.com/Mehd1slh/DocBot" class="button small">ACB Version – GitHub</a><br>
+													<a href="https://github.com/Abdelhakim2001/DocBot---DL" class="button small">Project Sentinel Version – GitHub</a><br>
+													<a href="https://huggingface.co/Mehd1SLH/LF_BERT_v1" class="button small">Gatekeeper Model – Hugging Face</a><br>
+													<a href="https://huggingface.co/datasets/Mehd1SLH/Sentinel_dataset" class="button small">Sentinel Dataset – Hugging Face</a>
 												</div>
 											</div>
 										</div>
@@ -108,7 +119,7 @@
 												<img src="images/egmr.png" alt="EGMR Entropy-Guided Matryoshka Retrieval" />
 											</div>
 											<div class="project-content">
-												<h3>EGMR: Entropy-Guided Matryoshka Retrieval — Master's Thesis </h3>
+												<h3>EGMR: Entropy-Guided Matryoshka Retrieval — Master's Thesis (in progress)</h3>
 												<p><strong>Technologies:</strong> Python, Ollama (Qwen3-1.7B), nomic-embed-text, FAISS, Qdrant, BM25, RAGAS, MLflow, Podman</p>
 												<p>
 													Master's thesis research on <strong>per-question adaptive retrieval for resource-constrained biomedical RAG</strong>. EGMR routes each question between a compact (64-dim) and a full-resolution (768-dim) dense index using a training-free uncertainty signal from a small local model, then stress-tests whether that routing really tracks question difficulty:
