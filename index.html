@@ -7,16 +7,45 @@
 	<html>
 		<head>
 			<title>Portfolio | Salih El Mehdi</title>
-			<meta charset="utf-8" />
-			<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+			<!-- 1. Meta theme-color -->
+			<meta name="theme-color" content="#1b1f22">
+
+			<!-- Existing stylesheets -->
 			<link rel="stylesheet" href="assets/css/main.css" />
 			<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+
+			<!-- 2. Theme overrides (MUST be loaded AFTER main.css) -->
+			<link rel="stylesheet" href="assets/css/theme.css" />
+
+			<!-- 3. Pre-paint theme detector (prevents flash of wrong theme) -->
+			<script>
+				(function () {
+				var saved = localStorage.getItem('portfolio-theme');
+				var theme = saved === 'light' ? 'light' : 'dark';
+				document.documentElement.setAttribute('data-theme', theme);
+				})();
+			</script>
 		</head>
+
 		<body class="is-preload">
 
-			<!-- Wrapper -->
-				<div id="wrapper">
+			<!-- Floating Theme & Language Switchers -->
+			<div id="site-controls" role="region" aria-label="Settings">
+				<!-- Language Toggle -->
+				<div class="ctl-lang" role="group" aria-label="Language">
+				<button type="button" class="ctl-btn" data-set-lang="en" aria-pressed="true">EN</button>
+				<button type="button" class="ctl-btn" data-set-lang="fr" aria-pressed="false">FR</button>
+				</div>
 
+				<!-- Theme Toggle -->
+				<button type="button" class="ctl-btn ctl-theme" id="theme-toggle" aria-label="Switch to light mode" title="Switch to light mode">
+				<i class="fas fa-sun"></i>
+				<i class="fas fa-moon"></i>
+				</button>
+			</div>
+
+			<!-- Wrapper -->
+			<div id="wrapper">
 					<!-- Header -->
 						<header id="header">
 							<div class="logo">
@@ -30,16 +59,16 @@
 							
 							<div class="content">
 								<div class="inner">
-									<h1>Salih El Mehdi</h1>
-									<p>Master's Student in Intelligent Processing Systems | Software Developer | AI Solutions Intern</p>
+									<h1 data-i18n="header_title">El Mehdi Salih</h1>
+									<p data-i18n="header_subtitle">AI & Intelligent Systems Engineer</p>
 								</div>
 							</div>
 							<nav>
 								<ul>
-									<li><a href="#intro">Intro</a></li>
-									<li><a href="#Projects">Projects</a></li>
-									<li><a href="#about">About</a></li>
-									<li><a href="#contact">Contact</a></li>
+									<li><a href="#intro" data-i18n="nav_intro">Intro</a></li>
+									<li><a href="#Projects" data-i18n="nav_work">Work</a></li>
+									<li><a href="#about" data-i18n="nav_about">About</a></li>
+									<li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
 								</ul>
 							</nav>
 						</header>
@@ -444,7 +473,7 @@
 											</div>
 										</div>
 										<ul class="actions">
-											<li><input type="submit" value="Send Message" class="primary" /></li>
+											<input type="submit" value="Send Message" data-i18n-value="form_submit" />
 											<li><input type="reset" value="Reset" /></li>
 										</ul>
 									</form>
@@ -469,11 +498,12 @@
 				<div id="bg"></div>
 
 			<!-- Scripts -->
-				<script src="assets/js/jquery.min.js"></script>
-				<script src="assets/js/browser.min.js"></script>
-				<script src="assets/js/breakpoints.min.js"></script>
-				<script src="assets/js/util.js"></script>
-				<script src="assets/js/main.js"></script>
-
-		</body>
-	</html>
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script src="assets/js/translations.js"></script>
+			<script src="assets/js/switcher.js"></script>
+  </body>
+</html>

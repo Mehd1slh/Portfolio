@@ -1,0 +1,408 @@
+/*
+ * theme.css — dark / light mode + language & theme controls.
+ *
+ * Loaded AFTER main.css (see index.html). It never edits main.css:
+ *   • DARK  = the existing design, left untouched (no overrides below).
+ *   • LIGHT = overrides scoped to  html[data-theme="light"].
+ *
+ * The attribute data-theme is set on <html> by the tiny inline script in
+ * <head> (before first paint) and by assets/js/switcher.js on click.
+ */
+
+/* ------------------------------------------------------------------ */
+/* 1. Palette tokens for the controls                                  */
+/* ------------------------------------------------------------------ */
+:root {
+  --ctl-fg: #ffffff;
+  --ctl-line: rgba(255, 255, 255, 0.55);
+  --ctl-bg: rgba(27, 31, 34, 0.55);
+  --ctl-hover: rgba(255, 255, 255, 0.14);
+  --ctl-on-bg: #ffffff;
+  --ctl-on-fg: #1b1f22;
+}
+
+html[data-theme="light"] {
+  --ctl-fg: #1b1f22;
+  --ctl-line: rgba(27, 31, 34, 0.55);
+  --ctl-bg: rgba(255, 255, 255, 0.7);
+  --ctl-hover: rgba(27, 31, 34, 0.08);
+  --ctl-on-bg: #1b1f22;
+  --ctl-on-fg: #ffffff;
+  color-scheme: light;
+}
+
+/* ------------------------------------------------------------------ */
+/* 2. Controls (language + theme)                                      */
+/* ------------------------------------------------------------------ */
+#site-controls {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Hidden during the intro animation, like the rest of the header */
+body.is-preload #site-controls {
+  opacity: 0;
+}
+
+#site-controls .ctl-lang {
+  display: flex;
+  border: solid 1px var(--ctl-line);
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--ctl-bg);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+
+/* Reset the global <button> look from main.css, then restyle */
+#site-controls .ctl-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.25rem;
+  min-width: 2.4rem;
+  padding: 0 0.7rem;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
+  color: var(--ctl-fg) !important;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.15rem;
+  line-height: 1;
+  text-indent: 0.15rem; /* optical centering with letter-spacing */
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease-in-out,
+    color 0.2s ease-in-out;
+}
+
+#site-controls .ctl-btn:hover {
+  background: var(--ctl-hover);
+}
+
+#site-controls .ctl-btn:focus-visible {
+  outline: 2px solid var(--ctl-fg);
+  outline-offset: -3px;
+}
+
+#site-controls .ctl-lang .ctl-btn[aria-pressed="true"] {
+  background: var(--ctl-on-bg);
+  color: var(--ctl-on-fg) !important;
+}
+
+#site-controls .ctl-theme {
+  border: solid 1px var(--ctl-line);
+  border-radius: 4px;
+  background: var(--ctl-bg);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  font-size: 0.85rem;
+  text-indent: 0;
+}
+
+/* Show the icon of the mode you will switch TO */
+html[data-theme="dark"] #site-controls .ctl-theme .fa-moon {
+  display: none;
+}
+html[data-theme="light"] #site-controls .ctl-theme .fa-sun {
+  display: none;
+}
+
+/* Close "X" of an open article sits top-right of the article; on narrower
+   screens the article spans the whole width, so move the controls to the left. */
+@media screen and (max-width: 980px) {
+  #site-controls {
+    right: auto;
+    left: 0.6rem;
+    top: 0.6rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #site-controls .ctl-btn {
+    height: 2rem;
+    min-width: 2.1rem;
+    padding: 0 0.55rem;
+  }
+}
+
+/* Smooth colour change when the user clicks the theme button (class is
+   added for ~400ms by switcher.js, so it never affects page-load animations) */
+html.theme-anim *,
+html.theme-anim *:before,
+html.theme-anim *:after {
+  transition:
+    background-color 0.35s ease,
+    color 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.theme-anim *,
+  html.theme-anim *:before,
+  html.theme-anim *:after {
+    transition: none !important;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* 3. LIGHT THEME overrides                                            */
+/* ------------------------------------------------------------------ */
+
+/* Page + base text */
+html[data-theme="light"] body {
+  background: #eef1f5;
+}
+
+html[data-theme="light"] body,
+html[data-theme="light"] input,
+html[data-theme="light"] select,
+html[data-theme="light"] textarea {
+  color: #1b1f22;
+}
+
+html[data-theme="light"] strong,
+html[data-theme="light"] b,
+html[data-theme="light"] h1,
+html[data-theme="light"] h2,
+html[data-theme="light"] h3,
+html[data-theme="light"] h4,
+html[data-theme="light"] h5,
+html[data-theme="light"] h6,
+html[data-theme="light"] label,
+html[data-theme="light"] table th,
+html[data-theme="light"] .project-content h3 {
+  color: #1b1f22;
+}
+
+html[data-theme="light"] a {
+  border-bottom-color: rgba(27, 31, 34, 0.5);
+}
+
+html[data-theme="light"] a:hover {
+  border-bottom-color: transparent;
+}
+
+html[data-theme="light"] h1.major,
+html[data-theme="light"] h2.major,
+html[data-theme="light"] h3.major,
+html[data-theme="light"] h4.major,
+html[data-theme="light"] h5.major,
+html[data-theme="light"] h6.major,
+html[data-theme="light"] hr {
+  border-bottom-color: #1b1f22;
+}
+
+html[data-theme="light"] blockquote {
+  border-left-color: #1b1f22;
+}
+
+html[data-theme="light"] code {
+  background: rgba(27, 31, 34, 0.08);
+}
+
+/* Animated background: pale wash over the GIF so dark text stays readable */
+html[data-theme="light"] #bg:before {
+  background-image: linear-gradient(to top, rgba(238, 241, 245, 0.86), rgba(238, 241, 245, 0.86));
+}
+
+html[data-theme="light"] body.is-preload #bg:before {
+  background-color: #eef1f5;
+}
+
+/* Header (logo, tagline, nav) */
+html[data-theme="light"] #header {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.55) 25%, rgba(255, 255, 255, 0) 55%);
+}
+
+html[data-theme="light"] #header > *:before,
+html[data-theme="light"] #header nav.use-middle:after {
+  background: #1b1f22;
+}
+
+html[data-theme="light"] #header .logo,
+html[data-theme="light"] #header .content {
+  border-color: #1b1f22;
+}
+
+html[data-theme="light"] #header nav ul {
+  border-color: #1b1f22;
+}
+
+html[data-theme="light"] #header nav ul li {
+  border-left-color: #1b1f22;
+}
+
+html[data-theme="light"] #header nav ul li:first-child {
+  border-left-color: transparent;
+}
+
+html[data-theme="light"] #header nav ul li a:hover {
+  background-color: rgba(27, 31, 34, 0.08);
+}
+
+html[data-theme="light"] #header nav ul li a:active {
+  background-color: rgba(27, 31, 34, 0.16);
+}
+
+@media screen and (max-width: 480px) {
+  html[data-theme="light"] #header nav ul li {
+    border-left-color: transparent;
+    border-top-color: #1b1f22;
+  }
+  html[data-theme="light"] #header nav ul li:first-child {
+    border-top-color: transparent;
+  }
+}
+
+/* Article panel */
+html[data-theme="light"] #main article {
+  background-color: rgba(255, 255, 255, 0.93);
+  box-shadow: 0 12px 40px rgba(20, 30, 50, 0.18);
+}
+
+html[data-theme="light"] #main article .close:before {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='20px' height='20px' viewBox='0 0 20 20' zoomAndPan='disable'%3E%3Cstyle%3Eline %7B stroke: %231b1f22%3B stroke-width: 1%3B %7D%3C/style%3E%3Cline x1='2' y1='2' x2='18' y2='18' /%3E%3Cline x1='18' y1='2' x2='2' y2='18' /%3E%3C/svg%3E");
+}
+
+html[data-theme="light"] #main article .close:hover:before {
+  background-color: rgba(27, 31, 34, 0.08);
+}
+
+html[data-theme="light"] #main article .close:active:before {
+  background-color: rgba(27, 31, 34, 0.16);
+}
+
+/* Projects list */
+html[data-theme="light"] .project-container {
+  border-bottom-color: rgba(27, 31, 34, 0.14);
+}
+
+/* Buttons */
+html[data-theme="light"] input[type="submit"],
+html[data-theme="light"] input[type="reset"],
+html[data-theme="light"] input[type="button"],
+html[data-theme="light"] button,
+html[data-theme="light"] .button {
+  box-shadow: inset 0 0 0 1px #1b1f22;
+  color: #1b1f22 !important;
+}
+
+html[data-theme="light"] input[type="submit"]:hover,
+html[data-theme="light"] input[type="reset"]:hover,
+html[data-theme="light"] input[type="button"]:hover,
+html[data-theme="light"] button:hover,
+html[data-theme="light"] .button:hover {
+  background-color: rgba(27, 31, 34, 0.08);
+}
+
+html[data-theme="light"] input[type="submit"]:active,
+html[data-theme="light"] input[type="reset"]:active,
+html[data-theme="light"] input[type="button"]:active,
+html[data-theme="light"] button:active,
+html[data-theme="light"] .button:active {
+  background-color: rgba(27, 31, 34, 0.16);
+}
+
+html[data-theme="light"] input[type="submit"].primary,
+html[data-theme="light"] input[type="reset"].primary,
+html[data-theme="light"] input[type="button"].primary,
+html[data-theme="light"] button.primary,
+html[data-theme="light"] .button.primary {
+  background-color: #1b1f22;
+  color: #ffffff !important;
+}
+
+/* The theme/lang controls use <button>; keep their own styling (section 2) */
+html[data-theme="light"] #site-controls .ctl-btn {
+  box-shadow: none;
+  color: var(--ctl-fg) !important;
+}
+html[data-theme="light"] #site-controls .ctl-lang .ctl-btn[aria-pressed="true"] {
+  color: var(--ctl-on-fg) !important;
+}
+
+/* Form fields */
+html[data-theme="light"] input[type="text"],
+html[data-theme="light"] input[type="password"],
+html[data-theme="light"] input[type="email"],
+html[data-theme="light"] input[type="tel"],
+html[data-theme="light"] select,
+html[data-theme="light"] textarea {
+  border-color: #1b1f22;
+}
+
+html[data-theme="light"] input[type="text"]:focus,
+html[data-theme="light"] input[type="password"]:focus,
+html[data-theme="light"] input[type="email"]:focus,
+html[data-theme="light"] input[type="tel"]:focus,
+html[data-theme="light"] select:focus,
+html[data-theme="light"] textarea:focus {
+  background: rgba(27, 31, 34, 0.05);
+  border-color: #1b1f22;
+  box-shadow: 0 0 0 1px #1b1f22;
+}
+
+html[data-theme="light"] ::-webkit-input-placeholder {
+  color: rgba(27, 31, 34, 0.5) !important;
+}
+html[data-theme="light"] ::-moz-placeholder {
+  color: rgba(27, 31, 34, 0.5) !important;
+}
+
+/* Social icons */
+html[data-theme="light"] ul.icons li a {
+  box-shadow: inset 0 0 0 1px #1b1f22;
+}
+
+html[data-theme="light"] ul.icons li a:hover {
+  background-color: rgba(27, 31, 34, 0.08);
+}
+
+html[data-theme="light"] ul.icons li a:active {
+  background-color: rgba(27, 31, 34, 0.16);
+}
+
+/* Tables / boxes (unused today, kept so future content is themed too) */
+html[data-theme="light"] table tbody tr,
+html[data-theme="light"] table thead,
+html[data-theme="light"] table tfoot,
+html[data-theme="light"] .box {
+  border-color: #1b1f22;
+}
+/* ------------------------------------------------------------------ */
+/* 4. Header Nav Equal-Width Alignment                                */
+/* ------------------------------------------------------------------ */
+#header nav ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 strictly equal columns */
+}
+
+#header nav ul li {
+  width: 100%;
+}
+
+#header nav ul li a {
+  width: 100%;
+  min-width: 0; /* Remove hardcoded 7.5rem clamp */
+  padding: 0 0.8rem; /* Prevent text touching borders */
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* Maintain default vertical stack on mobile phones */
+@media screen and (max-width: 480px) {
+  #header nav ul {
+    display: flex;
+    flex-direction: column;
+  }
+}
