@@ -210,18 +210,19 @@ html[data-theme="light"] code {
   background: rgba(27, 31, 34, 0.08);
 }
 
-/* Animated background: pale wash over the GIF so dark text stays readable */
+/* Animated background: pale wash over the GIF so dark text stays readable
 html[data-theme="light"] #bg:before {
   background-image: linear-gradient(to top, rgba(238, 241, 245, 0.86), rgba(238, 241, 245, 0.86));
+} */
+
+/* Inverts black background to pure white and white lines to black */
+html[data-theme="light"] .bg-video {
+  filter: invert(1);
+  -webkit-filter: invert(1);
 }
 
 html[data-theme="light"] body.is-preload #bg:before {
   background-color: #eef1f5;
-}
-
-/* Header (logo, tagline, nav) */
-html[data-theme="light"] #header {
-  background-image: radial-gradient(rgba(255, 255, 255, 0.55) 25%, rgba(255, 255, 255, 0) 55%);
 }
 
 html[data-theme="light"] #header > *:before,

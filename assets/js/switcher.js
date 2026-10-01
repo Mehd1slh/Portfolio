@@ -77,17 +77,26 @@
   /* Theme                                                             */
   /* ---------------------------------------------------------------- */
   function applyTheme(next, animate) {
-    theme = next === "light" ? "light" : "dark";
-    if (animate) {
-      root.classList.add("theme-anim");
-      window.setTimeout(function () {
-        root.classList.remove("theme-anim");
-      }, 450);
+      theme = next === "light" ? "light" : "dark";
+      if (animate) {
+        root.classList.add("theme-anim");
+        window.setTimeout(function () {
+          root.classList.remove("theme-anim");
+        }, 450);
+      }
+      root.setAttribute("data-theme", theme);
+      if (metaTheme) metaTheme.setAttribute("content", theme === "light" ? "#eef1f5" : "#1b1f22");
+
+      var lightVid = document.getElementById("bg-video-light");
+      var darkVid = document.getElementById("bg-video-dark");
+      if (theme === "light" && lightVid) {
+        lightVid.play().catch(function () {});
+      } else if (theme === "dark" && darkVid) {
+        darkVid.play().catch(function () {});
+      }
+
+      refreshControls();
     }
-    root.setAttribute("data-theme", theme);
-    if (metaTheme) metaTheme.setAttribute("content", theme === "light" ? "#eef1f5" : "#1b1f22");
-    refreshControls();
-  }
 
   /* ---------------------------------------------------------------- */
   /* Language                                                          */
