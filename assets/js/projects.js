@@ -20,7 +20,8 @@
     context: {
       research: ['Research', 'Recherche'],
       hackathon: ['Hackathon', 'Hackathon'],
-      academic: ['Academic', 'Académique']
+      academic: ['Academic', 'Académique'],
+      internship: ['Internship', 'Stage']
     }
   };
   var GROUPS = { topic: ['Topic', 'Thème'], context: ['Context', 'Contexte'] };
@@ -101,10 +102,11 @@
     if (!h3) return;
     var ctx = tags(card, 'context')[0];
     var ev = card.getAttribute('data-event');
+    var evFr = card.getAttribute('data-event-fr') || ev;
     var meta = el('div', 'proj-meta');
     if (ctx && LABELS.context[ctx]) {
       var badge = el('span', 'proj-badge');
-      var pair = LABELS.context[ctx].map(function (s) { return ev ? s + ': ' + ev : s; });
+      var pair = LABELS.context[ctx].map(function (s, i) { var e = i ? evFr : ev; return e ? s + ': ' + e : s; });
       meta.appendChild(bi(badge, pair));
     }
     var names = [0, 1].map(function (i) {

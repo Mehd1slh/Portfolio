@@ -82,9 +82,9 @@
 								<article id="intro">
 									<h2 class="major" data-i18n="h2_intro">Intro</h2>
 									<p data-i18n="intro_p">
-										Hello! I’m El Mehdi Salih, a Master’s student in <strong>Intelligent Processing Systems (IPS)</strong> at the Faculty of Sciences of Rabat, specializing in <strong>Artificial Intelligence, Retrieval-Augmented Generation (RAG), and data-driven systems</strong>.<br><br>
+										Hello! I’m El Mehdi Salih, an <strong>AI / Generative AI Engineer</strong> specialized in <strong>Retrieval-Augmented Generation (RAG), information retrieval systems, small language models (SLMs) and edge AI</strong>. I hold a Master's degree in <strong>Intelligent Processing Systems (IPS)</strong> at the Faculty of Sciences of Rabat.<br><br>
 
-										I design and build <strong>AI-powered applications</strong> that combine modern software engineering practices (Spring Boot, Angular, microservices) with <strong>local and privacy-preserving AI pipelines</strong>. My work focuses on transforming research concepts into practical, efficient systems, particularly in <strong>document intelligence, adaptive retrieval, and AI-assisted decision support</strong>.<br><br>
+										I design and build <strong>AI-powered applications</strong> that combine modern software engineering practices (Spring Boot, Angular, microservices) with <strong>local and privacy-preserving AI pipelines</strong> that run on modest hardware. My work focuses on transforming research concepts into practical, efficient systems, particularly in <strong>document intelligence, adaptive retrieval, and AI-assisted decision support</strong>.<br><br>
 
 										Feel free to explore my portfolio to see <a href="#Projects">projects and skills that define my journey!</a>
 									</p>
@@ -151,7 +151,7 @@
 												<img loading="lazy" src="images/egmr.png" alt="EGMR Entropy-Guided Matryoshka Retrieval" />
 											</div>
 											<div class="project-content">
-												<h3 data-i18n="p2_01">EGMR: Entropy-Guided Matryoshka Retrieval — Master's Thesis (in progress)</h3>
+												<h3 data-i18n="p2_01">EGMR: Entropy-Guided Matryoshka Retrieval — Master's Thesis (defended)</h3>
 												<p class="proj-hook" data-en="Thesis research: routing each biomedical question to a light or a deep retrieval index." data-fr="Recherche de thèse : router chaque question biomédicale vers un index de recherche léger ou profond.">Thesis research: routing each biomedical question to a light or a deep retrieval index.</p>
 												<p class="proj-metric" data-en="Better retrieval at 30% of the deep-search cost" data-fr="Meilleure récupération pour 30 % du coût de recherche profonde">Better retrieval at 30% of the deep-search cost</p>
 												<ul class="proj-chips"><li>Python</li><li>FAISS</li><li>Qdrant</li><li>RAGAS</li></ul>
@@ -174,6 +174,79 @@
 												</details>
 												<div class="project-links">
 													<span class="button small disabled" data-i18n="btn_thesis_code_coming_soon">Thesis &amp; Code (Coming Soon)</span>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<!-- Project: Legal RAG Assistant, ingestion module (confidential internship) -->
+									<div class="project-container proj-card" id="project-legal-rag-ingestion" data-topic="rag" data-context="internship" data-event="Confidential client, financial services" data-event-fr="Client confidentiel, services financiers">
+										<div class="project">
+											<div class="project-image-top">
+												<img loading="lazy" src="images/tambot.png" alt="DocBot Offline RAG Chatbot" />
+											</div>
+											<div class="project-content">
+												<h3 data-i18n="p13_01">Legal RAG Assistant: Document Ingestion Pipeline</h3>
+												<p class="proj-hook" data-en="Turns scanned and bilingual regulatory PDFs into precisely cited, article-level chunks for a legal RAG assistant." data-fr="Transforme des PDF réglementaires scannés et bilingues en segments par article, précisément cités, pour un assistant RAG juridique.">Turns scanned and bilingual regulatory PDFs into precisely cited, article-level chunks for a legal RAG assistant.</p>
+												<p class="proj-metric" data-en="Zero article-numbering collisions on the test corpus" data-fr="Zéro collision de numérotation d’articles sur le corpus de test">Zero article-numbering collisions on the test corpus</p>
+												<ul class="proj-chips"><li>Python</li><li>FastAPI</li><li>DocTR</li><li>Podman</li></ul>
+												<details class="proj-more"><summary data-en="Details" data-fr="Détails">Details</summary>
+												<p><strong>Technologies:</strong> Python, FastAPI, PyMuPDF, pdfplumber, DocTR (PyTorch), OpenCV, Streamlit, Podman</p>
+												<p>
+													<span data-i18n="p13_02">Internship project at a confidential enterprise client (financial services sector). I designed and built the <strong>full ingestion module</strong> of an internal legal RAG assistant that answers regulatory questions with citations to the exact article and page, on fully local infrastructure. The retrieval and generation chain was built by the rest of the team. My scope was everything that turns a raw PDF into clean, citable text:</span>
+													<ul class="project-features">
+														<li data-i18n="p13_03"><strong>Page Classification:</strong> Detects digital, scanned, or mixed pages from character-density heuristics and forces OCR when corrupted glyphs are found, so OCR only runs where it is needed.</li>
+														<li data-i18n="p13_04"><strong>Bicolumn Extraction:</strong> Detects French/Arabic two-column layouts by analyzing horizontal word gaps and keeps the right column, with a fallback extractor when the primary output looks corrupted.</li>
+														<li data-i18n="p13_05"><strong>OCR:</strong> DocTR (DBNet + CRNN) chosen over Tesseract for native multi-column handling and better-calibrated confidence scores, with SHA-256-keyed disk caching and per-page confidence carried through to each chunk.</li>
+														<li data-i18n="p13_06"><strong>Legal-Aware Chunking:</strong> Article-level chunks with paragraph and sentence fallbacks, hierarchy tracking (book, title, chapter, section), deduplication, and decree-boundary detection that stops article numbers of an annexed decree from colliding with its parent law.</li>
+														<li data-i18n="p13_07"><strong>Validation &amp; Human Review:</strong> Schema checks on every chunk, plus a two-step admin interface where analysts correct OCR or article-number errors and chunk IDs and citations are recomputed before indexing.</li>
+													</ul>
+													<strong data-i18n="p13_08">Results:</strong>
+													<ul class="project-achievements">
+														<li data-i18n="p13_09">Zero article-numbering collisions across a four-document corpus that includes a fully scanned, degraded document.</li>
+														<li data-i18n="p13_10">Full OCR chain validated end to end on the scanned document, including the bicolumn layout.</li>
+													</ul>
+												</p>
+												</details>
+												<div class="project-links">
+													<span class="button small disabled" data-i18n="btn_confidential_client_project">Confidential client project (no public code)</span>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<!-- Project: Multi-agent credit-analysis assistant (confidential internship, work in progress) -->
+									<div class="project-container proj-card" id="project-credit-agents" data-topic="rag multiagent" data-context="internship" data-event="Confidential client, financial services" data-event-fr="Client confidentiel, services financiers">
+										<div class="project">
+											<div class="project-image-top">
+												<img loading="lazy" src="images/tamagent.png" alt="DocBot Offline RAG Chatbot" />
+											</div>
+											<div class="project-content">
+												<h3 data-i18n="p14_01">Multi-Agent Credit-Analysis Assistant (in progress)</h3>
+												<p class="proj-hook" data-en="On-premise multi-agent system that helps analysts draft cited, human-validated credit analysis reports." data-fr="Système multi-agents sur site qui aide les analystes à rédiger des rapports d’analyse de crédit sourcés et validés par un humain.">On-premise multi-agent system that helps analysts draft cited, human-validated credit analysis reports.</p>
+												<p class="proj-metric" data-en="Alpha stage: ingestion and orchestration layers running" data-fr="Stade alpha : couches d’ingestion et d’orchestration opérationnelles">Alpha stage: ingestion and orchestration layers running</p>
+												<ul class="proj-chips"><li>Python</li><li>FastAPI</li><li>n8n</li><li>Ollama</li></ul>
+												<details class="proj-more"><summary data-en="Details" data-fr="Détails">Details</summary>
+												<p><strong>Technologies:</strong> Python, FastAPI, n8n, Ollama (Qwen3), PyMuPDF, pdfplumber, Streamlit, Docker/Podman Compose. Planned: Qdrant, LangGraph</p>
+												<p>
+													<span data-i18n="p14_02">Ongoing project at a confidential enterprise client (financial services sector): an <strong>on-premise multi-agent assistant</strong> that answers questions on lending regulations and drafts structured credit-analysis reports, with the human analyst keeping final responsibility. The data is sensitive, so everything must run on the client’s own servers with no cloud APIs. The project is at alpha stage: part of the architecture below is built, part is still planned.</span>
+													<strong data-i18n="p14_03">Built so far:</strong>
+													<ul class="project-features">
+														<li data-i18n="p14_04"><strong>Document Ingestion Service:</strong> A FastAPI microservice that classifies financial PDFs page by page, sending scanned pages to a vision LLM and native pages to a fast text extractor.</li>
+														<li data-i18n="p14_05"><strong>Workflow Orchestration:</strong> n8n workflows that window documents, assemble a knowledge base with a routing index, and dispatch it to specialist agents (legal/governance, financial, market/risk) running on a local reasoning model.</li>
+														<li data-i18n="p14_06"><strong>Analyst Validation UI:</strong> A Streamlit front end to upload document batches and review the extracted text before it reaches the agents.</li>
+														<li data-i18n="p14_07"><strong>Local, Containerized Stack:</strong> Docker Compose deployment with GPU-accelerated local inference, designed around a zero-data-exfiltration constraint.</li>
+													</ul>
+													<strong data-i18n="p14_08">Planned next:</strong>
+													<ul class="project-achievements">
+														<li data-i18n="p14_09"><strong>Retrieval Layer:</strong> A vector store with hybrid retrieval over regulations and conventions, so agents rely on cited retrieval instead of direct context injection.</li>
+														<li data-i18n="p14_10"><strong>Agent Graph:</strong> A LangGraph-orchestrated Financial Analyst and Compliance agent, plus a Critique agent that must sign off before anything reaches the analyst, followed by a synthesis step.</li>
+														<li data-i18n="p14_11"><strong>Human-in-the-Loop:</strong> A pause step for analyst review, then evaluation on anonymized real dossiers.</li>
+													</ul>
+												</p>
+												</details>
+												<div class="project-links">
+													<span class="button small disabled" data-i18n="btn_confidential_client_project">Confidential client project (no public code)</span>
 												</div>
 											</div>
 										</div>
@@ -473,9 +546,11 @@
 									<h2 class="major" data-i18n="h2_about">About</h2>
 									<span class="image main"><img src="images/me_shiftlab.jpg" alt="" /></span>
 									<p data-i18n="about_p">
-										My work focuses on designing <strong>intelligent systems that remain efficient, reliable, and scalable under real-world constraints</strong>. I am particularly interested in applied artificial intelligence, data-driven architectures, and Retrieval-Augmented Generation (RAG), with an emphasis on <strong>performance optimization, privacy, and system robustness</strong>.<br><br>
+										I specialize in <strong>retrieval and generation systems that stay efficient, reliable, and private under real-world constraints</strong>: RAG pipelines, information retrieval, small language models (SLMs), and edge AI that runs on a standard laptop or a clinic-scale machine instead of a GPU cluster. I care about <strong>performance optimization, privacy, and system robustness</strong>.<br><br>
 
-										Through academic and engineering projects, I have developed a structured approach that spans <strong>problem analysis, algorithmic design, and end-to-end implementation</strong>. This includes building local RAG pipelines, optimizing context usage, designing data and microservices architectures, and evaluating system performance using both quantitative and human-centered metrics.<br><br>
+										My research includes a Master’s thesis on entropy-guided adaptive retrieval (EGMR) and two papers on local RAG, Adaptive Context Budgeting and Project Sentinel, with first authorship on both. On the engineering side, I have built document-ingestion and multi-agent pipelines for a confidential client in the financial sector. I work evaluation-first, with statistical tests and human judges, and I report negative results as prominently as positive ones.<br><br>
+
+										Across academic and engineering projects, I have developed a structured approach that spans <strong>problem analysis, algorithmic design, and end-to-end implementation</strong>: local RAG pipelines, context optimization, data and microservices architectures, and system evaluation with both quantitative and human-centered metrics.<br><br>
 
 										I value discipline, consistency, and long-term improvement, principles reinforced through regular gym training and weightlifting, which naturally influence how I approach complex engineering problems, iterate on solutions, and deliver reliable systems.
 									</p>
