@@ -16,6 +16,7 @@
 
 			<!-- 2. Theme overrides (MUST be loaded AFTER main.css) -->
 			<link rel="stylesheet" href="assets/css/theme.css" />
+			<link rel="stylesheet" href="assets/css/projects.css" />
 
 			<!-- 3. Pre-paint theme detector (prevents flash of wrong theme) -->
 			<script>
@@ -93,15 +94,20 @@
 							<!-- Projects -->
 								<article id="Projects">
 									<h2 class="major" data-i18n="h2_projects">Projects</h2>
+									<div id="proj-filters"></div>
 
 									<!-- Project 1: DocBot – Offline Local RAG (ACB + Project Sentinel) -->
-									<div class="project-container">
+									<div class="project-container proj-card" id="project-docbot" data-topic="rag" data-context="research">
 										<div class="project">
 											<div class="project-image-top">
-												<img src="images/docbot.png" alt="DocBot Offline RAG Chatbot" />
+												<img loading="lazy" src="images/docbot.png" alt="DocBot Offline RAG Chatbot" />
 											</div>
 											<div class="project-content">
 												<h3 data-i18n="p1_01">DocBot: Offline Local RAG — Adaptive Context Budgeting &amp; Project Sentinel</h3>
+												<p class="proj-hook" data-en="Offline PDF chatbot that runs on an 8GB laptop and is the base for two research papers." data-fr="Chatbot PDF hors ligne qui tourne sur un portable 8 Go, base de deux travaux de recherche.">Offline PDF chatbot that runs on an 8GB laptop and is the base for two research papers.</p>
+												<p class="proj-metric" data-en="−30% latency, 5.9% hallucination rate" data-fr="−30 % de latence, 5,9 % d&#x27;hallucinations">−30% latency, 5.9% hallucination rate</p>
+												<ul class="proj-chips"><li>Python</li><li>Ollama</li><li>pgvector</li><li>TinyBERT</li></ul>
+												<details class="proj-more"><summary data-en="Details" data-fr="Détails">Details</summary>
 												<p><strong>Technologies:</strong> Python, LangChain, Ollama (Qwen3-1.7B), PostgreSQL, pgvector, nomic-embed-text, BM25, TinyBERT, Gradio, Docker</p>
 												<p>
 													<span data-i18n="p1_02">Built a fully <strong>offline, privacy-preserving PDF chatbot</strong> using Retrieval-Augmented Generation, then used it as the base system for <strong>two published research projects</strong> (first author on both), each targeting a different weakness of small local RAG pipelines. Everything runs on modest hardware (11th-gen Intel i5, 8GB RAM, CPU only):</span>
@@ -127,6 +133,7 @@
 														<li data-i18n="p1_17"><strong>Result:</strong> 5.92% hallucination rate at 5.3ms CPU inference latency (ROC-AUC 0.906), at the cost of lower fact recall (60% at the strict threshold).</li>
 													</ul>
 												</p>
+												</details>
 												<div class="project-links">
 													<a href="https://github.com/Mehd1slh/DocBot" class="button small" data-i18n="btn_acb_version_github">ACB Version – GitHub</a><br>
 													<a href="https://github.com/Abdelhakim2001/DocBot---DL" class="button small" data-i18n="btn_project_sentinel_version_git">Project Sentinel Version – GitHub</a><br>
@@ -138,13 +145,17 @@
 									</div>
 
 									<!-- Project: EGMR – Master's Thesis (Entropy-Guided Matryoshka Retrieval) -->
-									<div class="project-container">
+									<div class="project-container proj-card" id="project-egmr" data-topic="rag" data-context="research">
 										<div class="project">
 											<div class="project-image-top">
-												<img src="images/egmr.png" alt="EGMR Entropy-Guided Matryoshka Retrieval" />
+												<img loading="lazy" src="images/egmr.png" alt="EGMR Entropy-Guided Matryoshka Retrieval" />
 											</div>
 											<div class="project-content">
 												<h3 data-i18n="p2_01">EGMR: Entropy-Guided Matryoshka Retrieval — Master's Thesis (in progress)</h3>
+												<p class="proj-hook" data-en="Thesis research: routing each biomedical question to a light or a deep retrieval index." data-fr="Recherche de thèse : router chaque question biomédicale vers un index de recherche léger ou profond.">Thesis research: routing each biomedical question to a light or a deep retrieval index.</p>
+												<p class="proj-metric" data-en="Better retrieval at 30% of the deep-search cost" data-fr="Meilleure récupération pour 30 % du coût de recherche profonde">Better retrieval at 30% of the deep-search cost</p>
+												<ul class="proj-chips"><li>Python</li><li>FAISS</li><li>Qdrant</li><li>RAGAS</li></ul>
+												<details class="proj-more"><summary data-en="Details" data-fr="Détails">Details</summary>
 												<p><strong>Technologies:</strong> Python, Ollama (Qwen3-1.7B), nomic-embed-text, FAISS, Qdrant, BM25, RAGAS, MLflow, Podman</p>
 												<p>
 													<span data-i18n="p2_02">Master's thesis research on <strong>per-question adaptive retrieval for resource-constrained biomedical RAG</strong>. EGMR routes each question between a compact (64-dim) and a full-resolution (768-dim) dense index using a training-free uncertainty signal from a small local model, then stress-tests whether that routing really tracks question difficulty:</span>
@@ -160,6 +171,7 @@
 														<li data-i18n="p2_09">Reported a negative result with equal prominence: the routing signal allocates budget effectively but does not identify which individual questions are hard (AUC ≈ 0.49 against a 0.5 chance baseline).</li>
 													</ul>
 												</p>
+												</details>
 												<div class="project-links">
 													<span class="button small disabled" data-i18n="btn_thesis_code_coming_soon">Thesis &amp; Code (Coming Soon)</span>
 												</div>
@@ -168,13 +180,17 @@
 									</div>
 
 									<!-- Project 2: GLHF -->
-									<div class="project-container">
+									<div class="project-container proj-card" id="project-glhf" data-topic="rag" data-context="hackathon" data-event="AI for Real-World Impact, Rabat 2026">
 										<div class="project">
 											<div class="project-image-top">
-												<img src="images/glhf.png" alt="GLHF Prosocial Gaming Platform" />
+												<img loading="lazy" src="images/glhf.png" alt="GLHF Prosocial Gaming Platform" />
 											</div>
 											<div class="project-content">
 												<h3 data-i18n="p3_01">GLHF: AI-Powered "Loyalty-as-a-Service" for Gaming</h3>
+												<p class="proj-hook" data-en="Gaming moderation that rewards good behavior instead of only banning bad behavior." data-fr="Modération pour jeux vidéo qui récompense les bons comportements au lieu de seulement bannir.">Gaming moderation that rewards good behavior instead of only banning bad behavior.</p>
+												<p class="proj-metric" data-en="Under 50 ms moderation latency" data-fr="Modération en moins de 50 ms">Under 50 ms moderation latency</p>
+												<ul class="proj-chips"><li>TinyBERT</li><li>LoRA</li><li>FAISS</li><li>Flask</li></ul>
+												<details class="proj-more"><summary data-en="Details" data-fr="Détails">Details</summary>
 												<p><strong>Technologies:</strong> Python, TinyBERT, LoRA (PEFT), Qwen/Llama (Ollama), FAISS, LangChain, Flask</p>
 												<p>
 													<span data-i18n="p3_02">Developed a B2B platform designed to combat the "Toxicity Crisis" in competitive gaming. GLHF shifts the moderation paradigm from purely punitive bans to restorative justice and positive reinforcement:</span>
@@ -192,6 +208,7 @@
 														<li data-i18n="p3_11">Optimized for low-resource environments, allowing the entire "Judge" model and vector database to run locally without cloud API costs.</li>
 													</ul>
 												</p>
+												</details>
 												<div class="project-links">
 													<a href="https://github.com/Mehd1slh/GLHF" class="button small" data-i18n="btn_view_on_github">View On GitHub</a>
 												</div>
@@ -200,13 +217,17 @@
 									</div>
 
 									<!-- Project 2: Multi-Robot Delivery Coordination -->
-									<div class="project-container">
+									<div class="project-container proj-card" id="project-multirobot" data-topic="multiagent" data-context="academic">
 										<div class="project">
 											<div class="project-image-top">
-												<img src="images/mas_multi_robot.png" alt="Multi-Robot Delivery Coordination" />
+												<img loading="lazy" src="images/mas_multi_robot.png" alt="Multi-Robot Delivery Coordination" />
 											</div>
 											<div class="project-content">
 												<h3 data-i18n="p4_01">Autonomous Multi-Robot Warehouse Coordination System</h3>
+												<p class="proj-hook" data-en="Warehouse robots that share tasks, avoid collisions and cover for failed teammates." data-fr="Robots d&#x27;entrepôt qui se répartissent les tâches, évitent les collisions et remplacent les robots en panne.">Warehouse robots that share tasks, avoid collisions and cover for failed teammates.</p>
+												<p class="proj-metric" data-en="Contract Net and auctions benchmarked on 3 traffic levels" data-fr="Contract Net et enchères comparés sur 3 niveaux de trafic">Contract Net and auctions benchmarked on 3 traffic levels</p>
+												<ul class="proj-chips"><li>Python</li><li>Mesa</li><li>A*</li><li>FIPA-ACL</li></ul>
+												<details class="proj-more"><summary data-en="Details" data-fr="Détails">Details</summary>
 												<p><strong>Technologies:</strong> Python, Mesa Framework, Pygame, A* Algorithm, Matplotlib, Seaborn, FIPA-ACL</p>
 												<p>
 													<span data-i18n="p4_02">Developed a robust <strong>Multi-Agent System (MAS)</strong> to simulate and optimize autonomous delivery robots within a warehouse environment. The project focused on comparing coordination strategies for task allocation and collision-free navigation:</span>
@@ -224,6 +245,7 @@
 														<li data-i18n="p4_11">Visualized system dynamics (battery depletion, message cost, throughput) using real-time Mesa dashboards.</li>
 													</ul>
 												</p>
+												</details>
 												<div class="project-links">
 													<a href="https://github.com/Mehd1slh/multi-robot-delivery-coordination" class="button small" data-i18n="btn_view_on_github">View On GitHub</a>
 												</div>
@@ -233,13 +255,17 @@
 
 									<!-- Project: AirDwa – Drone Medical Dispatch -->
 									<!-- TODO: confirm and state your own contribution (ASR pipeline / simulation / dispatch logic / map building) -->
-									<div class="project-container">
+									<div class="project-container proj-card" id="project-airdwa" data-topic="rag multiagent geo" data-context="hackathon" data-event="HackAI, Ben Guerir 2026">
 										<div class="project">
 											<div class="project-image-top">
-												<img src="images/airdwa.png" alt="AirDwa Drone Medical Dispatch" />
+												<img loading="lazy" src="images/airdwa.png" alt="AirDwa Drone Medical Dispatch" />
 											</div>
 											<div class="project-content">
 												<h3 data-i18n="p5_01">AirDwa: Voice-Activated Drone Medical Dispatch</h3>
+												<p class="proj-hook" data-en="Describe an emergency in Darija and a drone fleet organizes the medical delivery." data-fr="Décrivez l&#x27;urgence en darija et une flotte de drones organise la livraison médicale.">Describe an emergency in Darija and a drone fleet organizes the medical delivery.</p>
+												<p class="proj-metric" data-en="Team project, 4 students" data-fr="Projet d&#x27;équipe, 4 étudiants">Team project, 4 students</p>
+												<ul class="proj-chips"><li>Whisper</li><li>Mesa</li><li>OpenStreetMap</li><li>Local LLM</li></ul>
+												<details class="proj-more"><summary data-en="Details" data-fr="Détails">Details</summary>
 												<p><strong>Technologies:</strong> Python, Mesa, Solara, Whisper (fine-tuned), local LLM, OpenStreetMap, OpenTopography, Streamlit, Gradio, Pygame</p>
 												<p>
 													<span data-i18n="p5_02">Team project (4 students): a multi-agent drone logistics simulation for emergency medical delivery in rural Morocco, where poor road access can turn a medical emergency fatal. A request spoken in Darija triggers a drone fleet that coordinates delivery on its own:</span>
@@ -251,6 +277,7 @@
 														<li data-i18n="p5_07"><strong>Infrastructure Reuse:</strong> Existing rural telecom towers act as mid-flight charging points for the fleet.</li>
 													</ul>
 												</p>
+												</details>
 												<div class="project-links">
 													<a href="https://github.com/Mehd1slh/AirDwa" class="button small" data-i18n="btn_view_on_github">View On GitHub</a>
 												</div>
@@ -259,13 +286,17 @@
 									</div>
 
 									<!-- Project 2: AgriStore Smart Microservices Platform -->
-									<div class="project-container">
+									<div class="project-container proj-card" id="project-agristore" data-topic="rag fullstack" data-context="academic">
 										<div class="project">
 											<div class="project-image-top">
-												<img src="images/agristore.png" alt="AgriStore Smart Microservices Platform" />
+												<img loading="lazy" src="images/agristore.png" alt="AgriStore Smart Microservices Platform" />
 											</div>
 											<div class="project-content">
 												<h3 data-i18n="p6_01">AgriStore: Smart Agricultural E-commerce Platform</h3>
+												<p class="proj-hook" data-en="Agricultural online shop with an AI assistant for product advice." data-fr="Boutique agricole en ligne avec un assistant IA pour conseiller les produits.">Agricultural online shop with an AI assistant for product advice.</p>
+												<p class="proj-metric" data-en="Fully dockerized microservices" data-fr="Microservices entièrement conteneurisés">Fully dockerized microservices</p>
+												<ul class="proj-chips"><li>Spring Boot</li><li>Angular</li><li>Docker</li><li>OpenAI API</li></ul>
+												<details class="proj-more"><summary data-en="Details" data-fr="Détails">Details</summary>
 												<p><strong>Technologies:</strong> Spring Boot (microservices), Angular, Docker, OpenAI API, PostgreSQL</p>
 												<p>
 													<span data-i18n="p6_02">Developed a containerized, AI-powered web application for selling agricultural products. Key features:</span>
@@ -276,19 +307,24 @@
 													</ul>
 													<span data-i18n="p6_06"><strong>Impact:</strong> Improved user engagement and streamlined customer support with intelligent automation.</span>
 												</p>
+												</details>
 												<a href="https://github.com/Mehd1slh/AGRISTORE-__-Abdelhakim-AKCHOUCH---El-Mehdi-SALIH-" class="button small" data-i18n="btn_view_on_github">View On GitHub</a>
 											</div>
 										</div>
 									</div>
 
 									<!-- Project 3: AgriMar AI Agricultural Assistant -->
-									<div class="project-container">
+									<div class="project-container proj-card" id="project-agrimar" data-topic="rag geo" data-context="academic">
 										<div class="project">
 											<div class="project-image-top">
-												<img src="images/agrimar.png" alt="AgriMar Agricultural Chatbot" />
+												<img loading="lazy" src="images/agrimar.png" alt="AgriMar Agricultural Chatbot" />
 											</div>
 											<div class="project-content">
 												<h3 data-i18n="p7_01">AgriMar: AI-Powered Agricultural Assistant</h3>
+												<p class="proj-hook" data-en="Chatbot giving Moroccan farmers weather, soil and crop advice for their exact location." data-fr="Chatbot qui donne aux agriculteurs marocains météo, sol et conseils pour leur position exacte.">Chatbot giving Moroccan farmers weather, soil and crop advice for their exact location.</p>
+												<p class="proj-metric" data-en="+40% response relevance" data-fr="+40 % de pertinence des réponses">+40% response relevance</p>
+												<ul class="proj-chips"><li>Flask</li><li>OpenAI API</li><li>OpenStreetMap</li></ul>
+												<details class="proj-more"><summary data-en="Details" data-fr="Détails">Details</summary>
 												<p><strong>Technologies:</strong> Python, Flask, OpenAI API, OpenStreetMap, OpenCage </p>
 												<p>
 													<span data-i18n="p7_02">Developed an intelligent agricultural assistant that combines AI conversation with precise geospatial analysis to empower Moroccan farmers:</span>
@@ -306,6 +342,7 @@
 														<li data-i18n="p7_11">Transformed raw data into decision-ready insights through automated visualization and reporting</li>
 													</ul>
 												</p>
+												</details>
 												<div class="project-links">
 													<a href="https://github.com/Mehd1slh/AGRIMAR" class="button small" data-i18n="btn_view_on_github">View On GitHub</a>
 												</div>
@@ -314,13 +351,17 @@
 									</div>
 
 									<!-- Project: EcoSentinel – Environmental AI Platform -->
-									<div class="project-container">
+									<div class="project-container proj-card" id="project-ecosentinel" data-topic="geo fullstack" data-context="hackathon" data-event="GreenAI, Rabat 2025">
 										<div class="project">
 											<div class="project-image-top">
-												<img src="images/ecosentinel.png" alt="EcoSentinel Environmental AI Platform" />
+												<img loading="lazy" src="images/ecosentinel.png" alt="EcoSentinel Environmental AI Platform" />
 											</div>
 											<div class="project-content">
 												<h3 data-i18n="p9_01">EcoSentinel: Smart Pollution and Carbon Response Orchestrator</h3>
+												<p class="proj-hook" data-en="Satellite images and citizen reports turned into pollution alerts for local governments." data-fr="Images satellites et signalements citoyens transformés en alertes pollution pour les collectivités.">Satellite images and citizen reports turned into pollution alerts for local governments.</p>
+												<p class="proj-metric" data-en="Refreshed every 6 hours, tested on the Abou Regreg river" data-fr="Mise à jour toutes les 6 heures, testé sur l&#x27;oued Abou Regreg">Refreshed every 6 hours, tested on the Abou Regreg river</p>
+												<ul class="proj-chips"><li>Flask</li><li>Angular</li><li>n8n</li><li>Sentinel-2</li></ul>
+												<details class="proj-more"><summary data-en="Details" data-fr="Détails">Details</summary>
 												<p><strong>Technologies:</strong> Python (Flask), Angular, Tailwind, PostgreSQL, n8n, Hugging Face, GPT-4, Sentinel-2, Docker</p>
 												<p>
 													<span data-i18n="p9_02">Prototype of an AI-powered environmental alert platform for local governments, grounded in a real case study: monitoring the Oued Abou Regreg river (Rabat–Salé) and detecting waste accumulation in Salé Al Jadida with actual satellite data.</span>
@@ -331,6 +372,7 @@
 														<li data-i18n="p9_06"><strong>Automated Orchestration:</strong> An <strong>n8n</strong> workflow runs every 6 hours: it fetches OpenAQ air-quality data and fresh imagery, runs classification and summarization, then updates a live map, emails stakeholders, logs to PostgreSQL and sends SMS/Telegram alerts when thresholds are exceeded.</li>
 													</ul>
 												</p>
+												</details>
 												<div class="project-links">
 													<a href="https://github.com/Mehd1slh/EcoSentinel" class="button small" data-i18n="btn_view_on_github">View On GitHub</a>
 												</div>
@@ -339,13 +381,17 @@
 									</div>
 
 									<!-- Project: Citoyens Commun'ITy – Hackathon -->
-									<div class="project-container">
+									<div class="project-container proj-card" id="project-citoyens" data-topic="fullstack" data-context="hackathon" data-event="Commun&#x27;ITy, Marrakech 2026">
 										<div class="project">
 											<div class="project-image-top">
-												<img src="images/citoyens.png" alt="Citoyens Commun'ITy Ambassador Platform" />
+												<img loading="lazy" src="images/citoyens.png" alt="Citoyens Commun'ITy Ambassador Platform" />
 											</div>
 											<div class="project-content">
 												<h3 data-i18n="p10_01">Citoyens Commun'ITy: Ambassador Management Platform</h3>
+												<p class="proj-hook" data-en="Dashboard and admin tools for a national network of civic ambassadors." data-fr="Tableau de bord et outils d&#x27;administration pour un réseau national d&#x27;ambassadeurs citoyens.">Dashboard and admin tools for a national network of civic ambassadors.</p>
+												<p class="proj-metric" data-en="Built in about 48 hours" data-fr="Réalisé en environ 48 heures">Built in about 48 hours</p>
+												<ul class="proj-chips"><li>Flask</li><li>Chart.js</li><li>Leaflet</li></ul>
+												<details class="proj-more"><summary data-en="Details" data-fr="Détails">Details</summary>
 												<p><strong>Technologies:</strong> Python (Flask), JavaScript, Chart.js, Leaflet, DOCX/XML</p>
 												<p>
 													<span data-i18n="p10_02">Hackathon prototype built in about 48 hours at the Commun'ITy Hackathon (Marrakech, March 2026) for “Les Citoyens”, a national network of civic ambassadors:</span>
@@ -355,6 +401,7 @@
 														<li data-i18n="p10_05"><strong>Automated Reporting:</strong> A Flask endpoint generates official <code>.docx</code> activity reports by injecting data into a Word template through direct <code>zipfile</code>/XML manipulation, with no heavy templating library.</li>
 													</ul>
 												</p>
+												</details>
 												<div class="project-links">
 													<a href="https://github.com/Mehd1slh/digitoyens" class="button small" data-i18n="btn_view_on_github">View On GitHub</a>
 												</div>
@@ -363,13 +410,17 @@
 									</div>
 
 									<!-- Project 4: PMB Library Management System -->
-									<div class="project-container">
+									<div class="project-container proj-card" id="project-library" data-topic="data" data-context="academic">
 										<div class="project">
 											<div class="project-image-top">
-												<img src="images/library.jfif" alt="Library Management System" />
+												<img loading="lazy" src="images/library.jfif" alt="Library Management System" />
 											</div>
 											<div class="project-content">
 												<h3 data-i18n="p11_01">Library Management System – Business Intelligence Project</h3>
+												<p class="proj-hook" data-en="Library cataloging system with Power BI reporting, in Arabic and French." data-fr="Système de catalogage de bibliothèque avec reporting Power BI, en arabe et en français.">Library cataloging system with Power BI reporting, in Arabic and French.</p>
+												<p class="proj-metric" data-en="20k+ records cleaned and loaded" data-fr="Plus de 20 000 notices nettoyées et chargées">20k+ records cleaned and loaded</p>
+												<ul class="proj-chips"><li>PMB</li><li>MySQL</li><li>pandas</li><li>Power BI</li></ul>
+												<details class="proj-more"><summary data-en="Details" data-fr="Détails">Details</summary>
 												<p><strong>Technologies:</strong> PMB, PHP, MySQL, Python (pandas), Power BI</p>
 												<p>
 													<span data-i18n="p11_02">Designed and deployed a library system based on real-world CSV datasets in Arabic and French:</span>
@@ -380,19 +431,24 @@
 													</ul>
 													<span data-i18n="p11_06"><strong>Impact:</strong> Enabled efficient library cataloging and inventory tracking across language barriers.</span>
 												</p>
+												</details>
 												<a href="https://github.com/Mehd1slh/BI_Project" class="button small" data-i18n="btn_view_on_github">View On GitHub</a>
 											</div>
 										</div>
 									</div>
 
 									<!-- Project 5: House Energy Consumption – Data Mining Project -->
-									<div class="project-container">
+									<div class="project-container proj-card" id="project-energy" data-topic="data" data-context="academic">
 										<div class="project">
 											<div class="project-image-top">
-												<img src="images/energy.jfif" alt="House Energy Data Mining" />
+												<img loading="lazy" src="images/energy.jfif" alt="House Energy Data Mining" />
 											</div>
 											<div class="project-content">
 												<h3 data-i18n="p12_01">House Energy Consumption Analysis – Data Mining</h3>
+												<p class="proj-hook" data-en="Finding usage patterns and predicting daily consumption in household energy data." data-fr="Détection de profils d&#x27;usage et prédiction de la consommation quotidienne dans des données énergétiques.">Finding usage patterns and predicting daily consumption in household energy data.</p>
+												<p class="proj-metric" data-en="Clustering, association rules and k-NN" data-fr="Clustering, règles d&#x27;association et k-NN">Clustering, association rules and k-NN</p>
+												<ul class="proj-chips"><li>Scikit-learn</li><li>Pandas</li><li>K-means</li></ul>
+												<details class="proj-more"><summary data-en="Details" data-fr="Détails">Details</summary>
 												<p><strong>Technologies:</strong> Python, Scikit-learn, Pandas, Matplotlib , Mlextend</p>
 												<p>
 													<span data-i18n="p12_02">Analyzed a large energy dataset to uncover usage patterns and predict consumption:</span>
@@ -403,6 +459,7 @@
 													</ul>
 													<span data-i18n="p12_06"><strong>Impact:</strong> Provided actionable insights into energy saving for households.</span>
 												</p>
+												</details>
 												<a href="https://github.com/Mehd1slh/Household_Energy_Consumption_Patterns" class="button small" data-i18n="btn_view_on_github">View On GitHub</a>
 											</div>
 										</div>
@@ -481,5 +538,6 @@
 			<script src="assets/js/main.js"></script>
 			<script src="assets/js/translations.js"></script>
 			<script src="assets/js/switcher.js"></script>
+			<script src="assets/js/projects.js"></script>
   </body>
 </html>

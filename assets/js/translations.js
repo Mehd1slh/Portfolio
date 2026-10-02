@@ -105,11 +105,6 @@ window.PORTFOLIO_I18N = {
     p7_09: "Amélioration de 40 % de la pertinence des réponses grâce à des techniques avancées de prompt engineering",
     p7_10: "Réduction du temps de recherche des agriculteurs grâce à une information agricole instantanée et hyper-localisée",
     p7_11: "Transformation de données brutes en informations prêtes à l’emploi grâce à la visualisation et au reporting automatisés",
-    p8_01: "AgriLik : écosystème d’agriculture intelligente — Hackathon AI2SD 2025",
-    p8_02: "Candidature de deux personnes (équipe « AMA ») au <strong>Hackathon AI2SD 2025</strong>, catégorie Agriculture Intelligente (finale nationale). Elle regroupe deux des plateformes ci-dessus en un produit cohérent destiné aux petits agriculteurs marocains :",
-    p8_03: "<strong>Couche conseil :</strong> AgriMar fournit des conseils agronomiques multilingues adaptés à la localisation.",
-    p8_04: "<strong>Couche commerce :</strong> AgriStore transforme ces conseils en recommandations de produits propulsées par le RAG.",
-    p8_05: "<strong>Cadrage produit &amp; mise sur le marché :</strong> Définition de scénarios utilisateurs, d’un modèle économique freemium et d’un plan de déploiement régional, et proposition d’un troisième module (AgriCom, un réseau social d’agriculteurs) dans le cadre de la vision.",
     p9_01: "EcoSentinel : orchestrateur intelligent de réponse à la pollution et au carbone",
     p9_02:
       "Prototype d’une plateforme d’alerte environnementale propulsée par l’IA à destination des collectivités locales, fondé sur une étude de cas réelle : surveillance de l’Oued Abou Regreg (Rabat–Salé) et détection d’accumulations de déchets à Salé Al Jadida à partir de données satellitaires réelles.",

@@ -1,0 +1,123 @@
+/* Projects: filters, card summary, collapsible details.
+   Load AFTER main.css and theme.css. Colors derive from currentColor,
+   so it follows your dark/light theme without extra variables. */
+
+#Projects .proj-card[hidden] { display: none !important; }
+
+/* ---------- Filter bar ---------- */
+#Projects #proj-filters { margin: 0 0 2em; }
+
+#Projects .proj-group { margin: 0 0 1em; }
+#Projects .proj-group-label {
+  display: block;
+  margin: 0 0 .5em;
+  font-size: .8em;
+  opacity: .7;
+}
+#Projects .proj-group-chips { display: flex; flex-wrap: wrap; gap: .5em; }
+
+/* Reset the theme's big uppercase <button> style */
+#Projects .proj-chip-btn {
+  height: auto;
+  line-height: 1.2;
+  padding: .5em .9em;
+  letter-spacing: 0;
+  text-transform: none;
+  font-size: .85em;
+  font-weight: 400;
+  border-radius: 999px;
+  background: transparent;
+  color: inherit;
+  box-shadow: none;
+  border: 1px solid color-mix(in srgb, currentColor 35%, transparent);
+  cursor: pointer;
+}
+#Projects .proj-chip-btn:hover {
+  border-color: currentColor;
+}
+#Projects .proj-chip-btn[aria-pressed="true"] {
+  background: color-mix(in srgb, currentColor 20%, transparent);
+  border-color: currentColor;
+  font-weight: 600;
+}
+#Projects .proj-chip-btn .n { opacity: .6; margin-left: .3em; }
+#Projects .proj-chip-btn:focus-visible,
+#Projects .proj-more > summary:focus-visible,
+#Projects .proj-link-btn:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+#Projects .proj-status {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .8em;
+  margin: 1em 0 0;
+  font-size: .85em;
+}
+#Projects .proj-link-btn {
+  background: none;
+  border: 0;
+  box-shadow: none;
+  padding: 0;
+  height: auto;
+  line-height: 1.2;
+  letter-spacing: 0;
+  text-transform: none;
+  font-size: 1em;
+  color: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+}
+#Projects .proj-empty { margin: 0 0 2em; padding: 1.2em; border: 1px dashed color-mix(in srgb, currentColor 40%, transparent); }
+#Projects .proj-empty p { margin: 0 0 .6em; }
+
+/* ---------- Card summary ---------- */
+#Projects .proj-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .4em .8em;
+  margin: 0 0 .6em;
+  font-size: .8em;
+}
+#Projects .proj-badge {
+  padding: .15em .7em;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  font-weight: 600;
+}
+#Projects .proj-topics { opacity: .75; }
+
+#Projects .proj-hook { margin: 0 0 .5em; font-size: 1.05em; line-height: 1.5; }
+#Projects .proj-metric { margin: 0 0 .8em; font-weight: 600; }
+
+#Projects .proj-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4em;
+  list-style: none;
+  margin: 0 0 1em;
+  padding: 0;
+}
+#Projects .proj-chips li {
+  padding: .15em .65em;
+  font-size: .8em;
+  background: color-mix(in srgb, currentColor 12%, transparent);
+  border-radius: 4px;
+}
+
+/* ---------- Details ---------- */
+#Projects .proj-more { margin: 0 0 1.2em; border-top: 1px solid color-mix(in srgb, currentColor 25%, transparent); }
+#Projects .proj-more > summary {
+  padding: .8em 0;
+  cursor: pointer;
+  font-size: .9em;
+  font-weight: 600;
+}
+#Projects .proj-more[open] > summary { margin-bottom: .4em; }
+
+@media (max-width: 480px) {
+  #Projects .proj-chip-btn { padding: .55em .8em; }
+}
